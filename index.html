@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talks — gimmebytes</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg-card: #141420;
+      --bg-card-hover: #1a1a2e;
+      --text: #e8e8f0;
+      --text-muted: #8888a0;
+      --accent-blue: #4a7dff;
+      --accent-purple: #8b5cf6;
+      --accent-teal: #14b8a6;
+      --radius: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px 40px;
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: 2.8em;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.15em;
+      line-height: 1.5;
+    }
+
+    .talks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+      width: 100%;
+      max-width: 1100px;
+      padding: 20px 24px 80px;
+    }
+
+    .talk-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius);
+      padding: 32px;
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .talk-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(74, 125, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .talk-card-link {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .talk-conf-link {
+      font-size: 0.8em;
+      color: var(--accent-teal);
+      background: rgba(20, 184, 166, 0.1);
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      position: relative;
+      z-index: 2;
+      transition: background 0.2s;
+    }
+
+    .talk-conf-link:hover {
+      background: rgba(20, 184, 166, 0.25);
+    }
+
+    .talk-conf-link .conf-arrow {
+      font-size: 0.85em;
+      margin-left: 2px;
+    }
+
+    .talk-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+
+    .talk-card[data-accent="blue"]::before { background: var(--accent-blue); }
+    .talk-card[data-accent="purple"]::before { background: var(--accent-purple); }
+    .talk-card[data-accent="teal"]::before { background: var(--accent-teal); }
+
+    .talk-meta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .talk-date {
+      font-size: 0.8em;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .talk-format {
+      font-size: 0.7em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .format-slides {
+      color: #7da8ff;
+      background: rgba(74, 125, 255, 0.12);
+    }
+
+    .format-pdf {
+      color: #fbbf24;
+      background: rgba(245, 158, 11, 0.12);
+    }
+
+    .talk-title {
+      font-size: 1.4em;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    .talk-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95em;
+      line-height: 1.4;
+    }
+
+    footer {
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85em;
+    }
+
+    footer a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2em; }
+      .hero { padding: 50px 20px 30px; }
+      .talks-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>gimmebytes talks</h1>
+    <p>Conference talks, workshops, and presentations.<br>Give me bytes, I'll make something out of them.</p>
+  </header>
+
+  <main class="talks-grid">
+
+    <div class="talk-card" data-accent="blue">
+      <a href="2026-03-kiro-made-me-do-it/" class="talk-card-link" aria-label="Kiro Made Me Do It — Slides öffnen"></a>
+      <div class="talk-meta">
+        <span class="talk-date">22 Mar 2026</span>
+        <a href="https://agentic.hamburg/conf-2026/sessions/kiro-made-me-do-it/" class="talk-conf-link">Agentic Conf Hamburg <span class="conf-arrow">↗</span></a>
+        <span class="talk-format format-slides">Slides</span>
+      </div>
+      <div class="talk-title">Kiro Made Me Do It</div>
+      <div class="talk-subtitle">Falling Back in Love with Coding (the Hard Way)</div>
+    </div>
+
+    <div class="talk-card" data-accent="purple">
+      <a href="2026-01-innovation-through-spec-driven-development/unihh_innoforum_innovation_through_specdriven_mk.pdf" class="talk-card-link" aria-label="Innovation Through Spec-Driven Development — PDF öffnen"></a>
+      <div class="talk-meta">
+        <span class="talk-date">29 Jan 2026</span>
+        <a href="https://www.uni-hamburg.de/" class="talk-conf-link">Universität Hamburg <span class="conf-arrow">↗</span></a>
+        <span class="talk-format format-pdf">PDF</span>
+      </div>
+      <div class="talk-title">Innovation Through Spec-Driven Development</div>
+      <div class="talk-subtitle">How structured AI workflows change the way we build software</div>
+    </div>
+
+    <!-- Template for future talks:
+    <a href="YYYY-MM-your-talk-slug/" class="talk-card" data-accent="purple">
+      <div class="talk-meta">
+        <span class="talk-date">DD Mon YYYY</span>
+        <span class="talk-conf">Conference Name</span>
+        <span class="talk-format format-slides">Slides</span>
+      </div>
+      <div class="talk-title">Talk Title</div>
+      <div class="talk-subtitle">Talk subtitle or description</div>
+    </a>
+
+    For PDF talks:
+    <a href="YYYY-MM-old-talk/slides.pdf" class="talk-card" data-accent="teal">
+      <div class="talk-meta">
+        <span class="talk-date">DD Mon YYYY</span>
+        <span class="talk-conf">Conference Name</span>
+        <span class="talk-format format-pdf">PDF</span>
+      </div>
+      <div class="talk-title">Old Talk Title</div>
+      <div class="talk-subtitle">Description</div>
+    </a>
+    -->
+
+  </main>
+
+  <footer>
+    <p>gimmebytes — <a href="https://www.linkedin.com/in/marvin-kruse/">Marvin Kruse</a></p>
+  </footer>
+
+</body>
+</html>

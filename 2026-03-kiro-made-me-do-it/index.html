@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiro Made Me Do It — Agentic Conf Hamburg 2026</title>
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/black.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="../" class="back-link" aria-label="Back to all talks">← All Talks</a>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- SLIDE 1: Title -->
+      <section class="title-slide">
+        <div class="title-card">
+          <p class="conf-tag">Agentic Conf Hamburg 2026</p>
+          <h1>Kiro Made Me Do It</h1>
+          <p class="subtitle">Falling Back in Love with Coding (the Hard Way)</p>
+          <div class="speaker-info">
+            <img src="images/marvin.jpg" alt="Marvin Kruse" class="avatar">
+            <div>
+              <p class="speaker-name">Marvin Kruse</p>
+              <p class="speaker-role">Technical Lead at OTTO</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          Quick intro — set the tone. "Hi, I'm Marvin, and Kiro made me do it."
+          Keep it light, get a smile.
+        </aside>
+      </section>
+
+      <!-- SLIDE 2: About Me -->
+      <section class="about-slide">
+        <h2>About Me</h2>
+        <div class="about-grid">
+          <div class="about-card">
+            <img src="images/marvin.jpg" alt="Marvin Kruse" class="about-photo">
+          </div>
+          <div class="about-details">
+            <div class="detail-card">
+              <span class="detail-label">Role</span>
+              <span class="detail-value">Technical Lead at OTTO</span>
+            </div>
+            <div class="detail-card">
+              <span class="detail-label">Since</span>
+              <span class="detail-value">June 2024</span>
+            </div>
+            <div class="detail-card">
+              <span class="detail-label">Previously</span>
+              <span class="detail-value">Statista & AIRBUS</span>
+            </div>
+            <div class="detail-card">
+              <span class="detail-label">Focus</span>
+              <span class="detail-value">Architecture, Distributed Systems, Sharing Knowledge, Home Lab Enthusiast, Music Lover, Full-time Dad</span>
+            </div>
+            <div class="detail-card">
+              <span class="detail-label">Degree</span>
+              <span class="detail-value">Dipl. Wirtschaftsinformatik, Uni Hamburg</span>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          Keep it brief — name, OTTO, background. Don't linger here.
+        </aside>
+      </section>
+
+      <!-- SLIDE 3: The Problem — Calendar -->
+      <section class="calendar-slide">
+        <h2>The Problem: "I Want to Code, But..."</h2>
+        <div class="calendar">
+          <div class="cal-header">
+            <div class="cal-time-col"></div>
+            <div class="cal-day">Mon</div>
+            <div class="cal-day">Tue</div>
+            <div class="cal-day">Wed</div>
+            <div class="cal-day">Thu</div>
+            <div class="cal-day">Fri</div>
+          </div>
+          <div class="cal-body">
+            <div class="cal-times">
+              <div class="cal-time-label">8:00</div>
+              <div class="cal-time-label">9:00</div>
+              <div class="cal-time-label">10:00</div>
+              <div class="cal-time-label">11:00</div>
+              <div class="cal-time-label">12:00</div>
+              <div class="cal-time-label">13:00</div>
+              <div class="cal-time-label">14:00</div>
+              <div class="cal-time-label">15:00</div>
+              <div class="cal-time-label">16:00</div>
+              <div class="cal-time-label">17:00</div>
+            </div>
+            <div class="cal-col">
+              <div class="cal-event ev-teal" style="grid-row: 1 / 2;">Team Advice Session</div>
+              <div class="cal-event ev-blue" style="grid-row: 2 / 4;">Advisory Board: Platform</div>
+              <div class="cal-event ev-purple" style="grid-row: 4 / 6;">Workshop Prep: Architecture</div>
+              <div class="cal-event ev-gray" style="grid-row: 6 / 7;">Lunch</div>
+              <div class="cal-event ev-orange" style="grid-row: 7 / 8;">1:1 Marathon</div>
+              <div class="cal-event ev-daughter" style="grid-row: 8 / 11;">👧 Daughter Time</div>
+            </div>
+            <div class="cal-col">
+              <div class="cal-event ev-red" style="grid-row: 1 / 11;">🎪 Full-Day Workshop: Tech Strategy</div>
+            </div>
+            <div class="cal-col">
+              <div class="cal-event ev-teal" style="grid-row: 1 / 2;">Team Advice Session</div>
+              <div class="cal-event ev-blue" style="grid-row: 2 / 4;">This meeting could have been an email</div>
+              <div class="cal-event ev-purple" style="grid-row: 4 / 6;">Cross-Team Dependency Untangling</div>
+              <div class="cal-event ev-gray" style="grid-row: 6 / 7;">Lunch (if lucky)</div>
+              <div class="cal-event ev-orange" style="grid-row: 7 / 8;">Hiring Interview</div>
+              <div class="cal-event ev-daughter" style="grid-row: 8 / 11;">👧 Daughter Time</div>
+            </div>
+            <div class="cal-col">
+              <div class="cal-event ev-blue" style="grid-row: 1 / 3;">Advisory Board: Data</div>
+              <div class="cal-event ev-orange" style="grid-row: 3 / 5;">Roadmap Review (Q47)</div>
+              <div class="cal-event ev-teal" style="grid-row: 5 / 7;">Tech Lead Sync about the last Sync</div>
+              <div class="cal-event ev-purple" style="grid-row: 7 / 9;">Stakeholder Update</div>
+              <div class="cal-event ev-red" style="grid-row: 9 / 11;">Meeting about the meeting schedule</div>
+            </div>
+            <div class="cal-col">
+              <div class="cal-event ev-teal" style="grid-row: 1 / 2;">Team Advice Session</div>
+              <div class="cal-event ev-orange" style="grid-row: 2 / 4;">Workshop: How to have fewer meetings</div>
+              <div class="cal-event ev-blue" style="grid-row: 4 / 6;">Demo (pray the deploy worked)</div>
+              <div class="cal-event ev-gray" style="grid-row: 6 / 7;">Lunch</div>
+              <div class="cal-event ev-green" style="grid-row: 7 / 8;">✨ Actual Coding Time ✨</div>
+              <div class="cal-event ev-daughter" style="grid-row: 8 / 11;">👧 Daughter Time</div>
+            </div>
+          </div>
+        </div>
+        <div class="cal-tagline">
+          <span class="cal-tag tag-orange fragment">🧱 Duplo duty after work</span>
+          <span class="cal-tag tag-purple fragment">🧠 Brain says: sleep</span>
+          <span class="cal-tag tag-blue fragment">💻 But I still want to build</span>
+          <span class="cal-tag tag-teal fragment">⏰ Maybe 30 min on the couch</span>
+        </div>
+        <div class="segfault-line fragment">
+          <span class="segfault-tag">💥 Result: segfault</span>
+        </div>
+        <aside class="notes">
+          THIS is the laugh slide. Let it breathe.
+        </aside>
+      </section>
+
+      <!-- SLIDE 4: First Try — Vibe Coding -->
+      <section>
+        <h2>First Try: ChatGPT & "Vibe Coding"</h2>
+        <div class="card-grid two-col">
+          <div class="info-card card-green">
+            <span class="card-icon">💡</span>
+            <p>Just prompt and go — no plan, no spec</p>
+          </div>
+          <div class="info-card card-green">
+            <span class="card-icon">🚀</span>
+            <p>Tons of output in no time</p>
+          </div>
+          <div class="info-card card-red">
+            <span class="card-icon">🎲</span>
+            <p>Mileage may vary — results are hit or miss</p>
+          </div>
+          <div class="info-card card-red">
+            <span class="card-icon">🔄</span>
+            <p>Context lost between sessions — starting over. Again.</p>
+          </div>
+        </div>
+        <p class="slide-footnote fragment">More frustrating than productive.</p>
+        <aside class="notes">
+          "So I tried the obvious thing — ChatGPT, just prompt and go."
+        </aside>
+      </section>
+
+      <!-- SLIDE 5: The Fix — Kiro -->
+      <section>
+        <h2>The Fix: Kiro & Spec-Driven Development</h2>
+        <div class="card-grid single-col">
+          <div class="info-card card-blue">
+            <span class="card-icon">📝</span>
+            <p>Spec first — Requirements, Design, Tasks, then Code</p>
+          </div>
+          <div class="info-card card-teal">
+            <span class="card-icon">🏠</span>
+            <p>Everything lives in one place (the IDE)</p>
+          </div>
+          <div class="info-card card-purple">
+            <span class="card-icon">🧭</span>
+            <p>Structure instead of chaos</p>
+          </div>
+          <div class="info-card card-green">
+            <span class="card-icon">✅</span>
+            <p>AI follows your spec, not its own ideas</p>
+          </div>
+        </div>
+        <aside class="notes">
+          "Then I found Kiro. And the key difference: you write a spec FIRST."
+        </aside>
+      </section>
+
+      <!-- SLIDE 6: Spec-Driven Flow -->
+      <section class="flow-slide">
+        <h2>Spec-Driven Flow in Kiro</h2>
+        <div class="flow-container">
+          <div class="flow-annotation fragment" data-fragment-index="1">
+            <svg class="annotation-arrow" viewBox="0 0 120 60" width="120" height="60">
+              <path d="M10 50 Q30 5 60 10 Q90 15 110 5" stroke="#fbbf24" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-dasharray="5 3"/>
+            </svg>
+            <span class="annotation-text">psst... you can start here now!</span>
+          </div>
+          <div class="flow-steps">
+            <div class="flow-step step-1">
+              <span class="step-number">1</span>
+              <span class="step-label">Requirements</span>
+              <span class="step-desc">Structured, Given/When/Then</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step step-2">
+              <span class="step-number">2</span>
+              <span class="step-label">Design</span>
+              <span class="step-desc">Architecture, APIs, data models</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step step-3">
+              <span class="step-number">3</span>
+              <span class="step-label">Tasks</span>
+              <span class="step-desc">Isolated, testable steps</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step step-4">
+              <span class="step-number">4</span>
+              <span class="step-label">Code</span>
+              <span class="step-desc">Implementation guided by spec</span>
+            </div>
+          </div>
+          <div class="steering-note fragment" data-fragment-index="0">
+            <span class="steering-icon">＋</span>
+            <span>Steering Documents — re-use across projects, guiding all phases</span>
+          </div>
+        </div>
+        <aside class="notes">
+          Walk through the 4 steps quickly.
+        </aside>
+      </section>
+
+      <!-- SLIDE 7: What I Love -->
+      <section>
+        <h2>What I Love About Kiro</h2>
+        <div class="card-grid single-col">
+          <div class="info-card card-green">
+            <span class="card-icon">🏠</span>
+            <p>Everything in one IDE — specs, design, tasks, code. No hand-off, no context switching.</p>
+          </div>
+          <div class="info-card card-teal">
+            <span class="card-icon">🎯</span>
+            <p>Curated model selection — limited, but reduced to the best. Less choice, more focus.</p>
+          </div>
+          <div class="info-card card-blue">
+            <span class="card-icon">🪝</span>
+            <p>Hooks & Steering Documents — seamlessly integrated, guiding the agent across all phases.</p>
+          </div>
+          <div class="info-card card-purple">
+            <span class="card-icon">🤖</span>
+            <p>The agent just crunches through your tasks — spec to code, step by step.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          "Here's what genuinely impressed me."
+        </aside>
+      </section>
+
+      <!-- SLIDE 8: What Hurts -->
+      <section class="hurts-slide">
+        <h2>What Hurts</h2>
+        <div class="card-grid single-col">
+          <div class="info-card card-orange">
+            <span class="card-icon">✍️</span>
+            <p>Writing specs requires a mental shift — from "this button, that component" to precise intent</p>
+          </div>
+          <div class="info-card card-red">
+            <span class="card-icon">👻</span>
+            <p>Agent progress is unclear — is it still running? Thinking? Gone?</p>
+          </div>
+          <div class="info-card card-red">
+            <span class="card-icon">🧪</span>
+            <p>Kiro loves writing tests — sometimes way too many, running forever or not returning at all</p>
+          </div>
+          <div class="info-card card-purple">
+            <span class="card-icon">🎨</span>
+            <p>LLMs are creative — gaps get filled with solutions that sometimes fit perfectly, sometimes not at all</p>
+          </div>
+          <div class="info-card card-orange">
+            <span class="card-icon">📝</span>
+            <p>Auto-summary keeps context in check — but can stall you mid-flow when you just want to keep going</p>
+          </div>
+        </div>
+        <aside class="notes">
+          "Writing specs is hard because you need to change how you think."
+        </aside>
+      </section>
+
+      <!-- SLIDE 9: What I Built -->
+      <section class="projects-slide">
+        <h2>What I Built (and What's Next)</h2>
+        <div class="poster-grid">
+          <div class="poster poster-private">
+            <span class="poster-tag tag-private">Personal</span>
+            <span class="poster-emoji">💿</span>
+            <h3>collectio</h3>
+            <p>Sync my physical CD collection from Discogs to Tidal</p>
+          </div>
+          <div class="poster poster-private">
+            <span class="poster-tag tag-private">Personal</span>
+            <span class="poster-emoji">💰</span>
+            <h3>haushaltsbuch</h3>
+            <p>Local-only financial dashboard from bank Excel exports</p>
+          </div>
+          <div class="poster poster-private">
+            <span class="poster-tag tag-private">Personal</span>
+            <span class="poster-emoji">☁️</span>
+            <h3>gimmecloud</h3>
+            <p>Personal PaaS for my home lab — deploy with one command</p>
+          </div>
+          <div class="poster poster-work">
+            <span class="poster-tag tag-work">@ OTTO</span>
+            <span class="poster-emoji">📐</span>
+            <h3>acc-cli</h3>
+            <p>Architecture Communication Canvas — Markdown to HTML</p>
+          </div>
+          <div class="poster poster-coming">
+            <span class="poster-tag tag-coming">Coming Soon</span>
+            <span class="poster-emoji">🔍</span>
+            <h3>Rockybeach</h3>
+            <p>Die Drei ??? fan site with curated metadata search engine</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Go through quickly.
+        </aside>
+      </section>
+
+      <!-- SLIDE 10: Takeaway -->
+      <section class="takeaway-slide">
+        <div class="takeaway-card">
+          <blockquote>
+            I fell back in love with coding —<br>
+            not because AI writes code for me,<br>
+            but because it finally fits into my life.
+          </blockquote>
+          <p class="takeaway-sub">— Marvin Kruse</p>
+        </div>
+        <aside class="notes">
+          Slow down here. Let the quote land.
+        </aside>
+      </section>
+
+      <!-- SLIDE 11: Thank You -->
+      <section class="thankyou-slide">
+        <div class="thankyou-layout">
+          <div class="thankyou-left">
+            <h2>Thank You!</h2>
+            <div class="contact-cards">
+              <div class="contact-card">
+                <span>💼</span> <a href="https://www.linkedin.com/in/marvin-kruse/">linkedin.com/in/marvin-kruse</a>
+              </div>
+            </div>
+            <div class="link-cards">
+              <a href="https://kiro.dev/" class="link-card">Kiro.dev</a>
+              <a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html" class="link-card">Spec-Driven Development</a>
+              <a href="https://www.otto.de/jobs/technology/techblog/" class="link-card">OTTO Tech Blog</a>
+            </div>
+          </div>
+          <div class="thankyou-right">
+            <img src="images/danke.png" alt="Danke!" class="danke-img">
+          </div>
+        </div>
+        <aside class="notes">
+          "Thank you! These slides are a web app built with Kiro."
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      transition: 'slide',
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      center: false,
+      width: 1920,
+      height: 1080,
+      plugins: [ RevealNotes ],
+    });
+  </script>
+</body>
+</html>
