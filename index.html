@@ -156,6 +156,35 @@
       background: rgba(245, 158, 11, 0.12);
     }
 
+    .format-upcoming {
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .talk-card.talk-card--upcoming {
+      cursor: default;
+    }
+
+    .talk-card.talk-card--upcoming::before {
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(136, 136, 160, 0.4) 0px,
+        rgba(136, 136, 160, 0.4) 6px,
+        transparent 6px,
+        transparent 12px
+      );
+    }
+
+    .talk-card.talk-card--upcoming:hover {
+      background: var(--bg-card);
+      border-color: rgba(255, 255, 255, 0.06);
+      transform: none;
+    }
+
+    .talk-card.talk-card--upcoming .talk-subtitle {
+      opacity: 0.6;
+    }
+
     .talk-title {
       font-size: 1.4em;
       font-weight: 700;
@@ -200,6 +229,25 @@
   </header>
 
   <main class="talks-grid">
+
+    <div class="talk-card talk-card--upcoming" data-accent="purple">
+      <div class="talk-meta">
+        <span class="talk-date">11 Jun 2026</span>
+        <a href="https://www.uni-hamburg.de/" class="talk-conf-link">Universität Hamburg <span class="conf-arrow">↗</span></a>
+        <span class="talk-format format-upcoming">◷ Upcoming</span>
+      </div>
+      <div class="talk-title">Building a Coding Factory</div>
+    </div>
+
+    <div class="talk-card talk-card--upcoming" data-accent="teal">
+      <div class="talk-meta">
+        <span class="talk-date">12 May 2026</span>
+        <a href="https://www.tradeoff.ai" class="talk-conf-link">tradeoff.ai <span class="conf-arrow">↗</span></a>
+        <span class="talk-format format-upcoming">◷ Upcoming</span>
+      </div>
+      <div class="talk-title">Agentic AI im Realitätscheck</div>
+      <div class="talk-subtitle">Wie Entwickler-Agents vom Hype zum Hebel für Business-Performance werden</div>
+    </div>
 
     <div class="talk-card" data-accent="blue">
       <a href="2026-03-kiro-made-me-do-it/" class="talk-card-link" aria-label="Kiro Made Me Do It — Slides öffnen"></a>
