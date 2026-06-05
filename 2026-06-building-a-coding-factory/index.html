@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building a Coding Factory — Universität Hamburg 2026</title>
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/black.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- INTRO                                        -->
+      <!-- ============================================ -->
+
+      <!-- SLIDE: Title -->
+      <section class="title-slide">
+        <div class="title-card" style="max-width: 1100px; padding: 60px 100px;">
+          <p class="conf-tag">ITMC Innovationsforum<br/>Universität Hamburg - Juni 2026</p>
+          <h1>Building a Coding Factory</h1>
+          <p class="subtitle">How AI Agents Are Reshaping Software Engineering</p>
+          <div class="speaker-info">
+            <img src="images/marvin.jpg" alt="Marvin Kruse" class="avatar">
+            <div>
+              <p class="speaker-name">Marvin Kruse</p>
+              <p class="speaker-role">Technical Lead at OTTO</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE: About Me -->
+      <section class="about-slide">
+        <h2>Hi, I'm Marvin</h2>
+        <div style="display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start;">
+          <div>
+            <img src="images/marvin.jpg" alt="Marvin Kruse" class="about-photo">
+          </div>
+          <table style="width: 100%; border-collapse: separate; border-spacing: 0 14px; font-size: 0.95em;">
+            <tr>
+              <td style="color: var(--text-muted); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.1em; padding: 16px 20px; background: var(--bg-card); border-left: 3px solid var(--accent-blue); border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 8px 0 0 8px; white-space: nowrap; vertical-align: top;">Role</td>
+              <td style="padding: 16px 20px; background: var(--bg-card); border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 0 8px 8px 0; font-weight: 500;">Technical Lead at OTTO</td>
+            </tr>
+            <tr>
+              <td style="color: var(--text-muted); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.1em; padding: 16px 20px; background: var(--bg-card); border-left: 3px solid var(--accent-blue); border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 8px 0 0 8px; white-space: nowrap; vertical-align: top;">Since</td>
+              <td style="padding: 16px 20px; background: var(--bg-card); border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 0 8px 8px 0; font-weight: 500;">June 2024</td>
+            </tr>
+            <tr>
+              <td style="color: var(--text-muted); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.1em; padding: 16px 20px; background: var(--bg-card); border-left: 3px solid var(--accent-blue); border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 8px 0 0 8px; white-space: nowrap; vertical-align: top;">Experience</td>
+              <td style="padding: 16px 20px; background: var(--bg-card); border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 0 8px 8px 0; font-weight: 500;">>15 years — in various industries</td>
+            </tr>
+            <tr>
+              <td style="color: var(--text-muted); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.1em; padding: 16px 20px; background: var(--bg-card); border-left: 3px solid var(--accent-blue); border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 8px 0 0 8px; white-space: nowrap; vertical-align: top;">Focus</td>
+              <td style="padding: 16px 20px; background: var(--bg-card); border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 0 8px 8px 0; font-weight: 500;">Platform & AI-Engineering, Developer Experience,<br>Architecture & Distributed Systems</td>
+            </tr>
+            <tr>
+              <td style="color: var(--text-muted); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.1em; padding: 16px 20px; background: var(--bg-card); border-left: 3px solid var(--accent-blue); border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 8px 0 0 8px; white-space: nowrap; vertical-align: top;">Alma Mater</td>
+              <td style="padding: 16px 20px; background: var(--bg-card); border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 0 8px 8px 0; font-weight: 500;">Dipl. Wirtschaftsinformatik, Uni Hamburg 🎓</td>
+            </tr>
+          </table>
+        </div>
+        <aside class="notes">
+          "Ich hab hier studiert, jetzt mach ich was mit Computern bei OTTO."
+        </aside>
+      </section>
+
+      <!-- SLIDE: Agenda -->
+      <section>
+        <h2>Agenda</h2>
+        <div class="card-grid single-col" style="max-width: 900px;">
+          <div class="info-card card-blue" style="padding: 20px 30px;">
+            <span style="font-size: 1.4em; font-weight: 800; color: var(--accent-blue); margin-right: 20px;">1</span>
+            <p>The Evolution of the Coding Setup</p>
+          </div>
+          <div class="info-card card-purple" style="padding: 20px 30px;">
+            <span style="font-size: 1.4em; font-weight: 800; color: var(--accent-purple); margin-right: 20px;">2</span>
+            <p>Internals of a Coding Factory</p>
+          </div>
+          <div class="info-card card-teal" style="padding: 20px 30px;">
+            <span style="font-size: 1.4em; font-weight: 800; color: var(--accent-teal); margin-right: 20px;">3</span>
+            <p>Demo</p>
+          </div>
+          <div class="info-card card-orange" style="padding: 20px 30px;">
+            <span style="font-size: 1.4em; font-weight: 800; color: var(--accent-orange); margin-right: 20px;">4</span>
+            <p>Key Takeaways & Outlook</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- CHAPTER 1: The Evolution of the Coding Setup -->
+      <!-- ============================================ -->
+
+      <section class="title-slide">
+        <div style="text-align: center;">
+          <p class="conf-tag">Chapter 1</p>
+          <h1 style="font-size: 2.8em; background: none; -webkit-text-fill-color: var(--text); color: var(--text);">The Evolution of the Coding Setup</h1>
+        </div>
+      </section>
+
+      <!-- SLIDE: Three Eras of Coding -->
+      <section>
+        <h2>Three Eras of Coding</h2>
+        <div class="card-grid three-col" style="gap: 40px;">
+          <div class="info-card card-blue fragment" style="flex-direction: column; text-align: center; padding: 40px 30px;">
+            <span style="font-size: 2.4em; margin-bottom: 12px;">🖥️</span>
+            <p><strong>Classic</strong></p>
+            <p style="margin-top: 8px;">Nerd + Coffee + Laptop + IDE</p>
+            <p style="color: var(--text-muted); font-size: 0.85em; margin-top: 12px;">You write everything</p>
+          </div>
+          <div class="info-card card-purple fragment" style="flex-direction: column; text-align: center; padding: 40px 30px;">
+            <span style="font-size: 2.4em; margin-bottom: 12px;">🤖</span>
+            <p><strong>Modern</strong></p>
+            <p style="margin-top: 8px;">Nerd + Coffee + Laptop + IDE + Copilot</p>
+            <p style="color: var(--text-muted); font-size: 0.85em; margin-top: 12px;">You write, AI assists</p>
+          </div>
+          <div class="info-card card-green fragment" style="flex-direction: column; text-align: center; padding: 40px 30px;">
+            <span style="font-size: 2.4em; margin-bottom: 12px;">🏭</span>
+            <p><strong>AI Coding Factory</strong></p>
+            <p style="margin-top: 8px;">Nerd + Coffee + Phone/Browser</p>
+            <p style="color: var(--text-muted); font-size: 0.85em; margin-top: 12px;">You steer, AI writes</p>
+          </div>
+        </div>
+        <div class="fragment" style="margin-top: 50px; text-align: center;">
+          <p style="display: inline-block; background: rgba(74, 125, 255, 0.08); border: 1px solid rgba(74, 125, 255, 0.25); border-radius: 30px; padding: 16px 40px; font-size: 1.2em; color: var(--text); font-style: italic;">Your laptop is just the steering wheel — the engine runs elsewhere.</p>
+        </div>
+      </section>
+
+      <!-- SLIDE: What Changed? -->
+      <section>
+        <h2>What Changed?</h2>
+        <div class="card-grid single-col" style="gap: 24px;">
+          <div class="info-card card-blue" style="padding: 28px 36px;">
+            <p>LLMs can write code — everyone knows that by now</p>
+          </div>
+          <div class="info-card card-purple" style="padding: 28px 36px;">
+            <p>But: Agents can also <em>plan, structure, and execute</em> code autonomously</p>
+          </div>
+          <div class="info-card card-teal" style="padding: 28px 36px;">
+            <p>The shift: from "AI as autocomplete" to "AI as a coworker who works independently"</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE: How We Work Today -->
+      <section>
+        <h2>How We Build Software — Today</h2>
+        <div style="display: flex; justify-content: center; margin-top: 0;">
+          <svg viewBox="0 0 1400 580" width="1700" height="700" style="max-width: 100%;" xmlns="http://www.w3.org/2000/svg">
+            <!-- Business Analyst (outside the team box) -->
+            <rect x="50" y="200" width="180" height="100" rx="10" fill="#141420" stroke="rgba(245,158,11,0.4)" stroke-width="1.5"/>
+            <text x="140" y="240" font-family="system-ui, sans-serif" font-size="24" fill="#e8e8f0" text-anchor="middle">💼</text>
+            <text x="140" y="272" font-family="system-ui, sans-serif" font-size="13" fill="#fbbf24" text-anchor="middle">Business Analyst</text>
+
+            <!-- Arrow Business → into Team -->
+            <line x1="230" y1="250" x2="310" y2="250" stroke="rgba(245,158,11,0.4)" stroke-width="1.5" marker-end="url(#tArrowGray)"/>
+            <text x="270" y="238" font-family="system-ui, sans-serif" font-size="11" fill="#fbbf24" text-anchor="middle">requirement</text>
+
+            <!-- Team boundary -->
+            <rect x="300" y="40" width="1060" height="510" rx="16" fill="rgba(74,125,255,0.02)" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+            <text x="340" y="75" font-family="system-ui, sans-serif" font-size="18" fill="#8888a0" font-weight="700" letter-spacing="2">DEVELOPMENT TEAM</text>
+
+            <!-- PO -->
+            <rect x="340" y="120" width="180" height="90" rx="10" fill="#141420" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+            <text x="430" y="158" font-family="system-ui, sans-serif" font-size="26" fill="#e8e8f0" text-anchor="middle">👤</text>
+            <text x="430" y="185" font-family="system-ui, sans-serif" font-size="14" fill="#8888a0" text-anchor="middle">PO writes ticket</text>
+
+            <!-- Dev writes code -->
+            <rect x="590" y="120" width="180" height="90" rx="10" fill="#141420" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+            <text x="680" y="158" font-family="system-ui, sans-serif" font-size="26" fill="#e8e8f0" text-anchor="middle">👤</text>
+            <text x="680" y="185" font-family="system-ui, sans-serif" font-size="14" fill="#8888a0" text-anchor="middle">Dev writes code</text>
+
+            <!-- AI Copilot (above dev) -->
+            <rect x="620" y="60" width="140" height="40" rx="8" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+            <text x="690" y="85" font-family="system-ui, sans-serif" font-size="11" fill="#b794f6" text-anchor="middle">🤖 AI Copilot assists</text>
+            <!-- Arrow Copilot → Dev -->
+            <line x1="690" y1="100" x2="680" y2="120" stroke="rgba(139,92,246,0.3)" stroke-width="1" stroke-dasharray="3 2"/>
+
+            <!-- Local dev loop -->
+            <path d="M680 210 Q680 260 620 260 Q560 260 590 210" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#tArrowGray)"/>
+            <text x="620" y="280" font-family="system-ui, sans-serif" font-size="11" fill="#8888a0" text-anchor="middle">local dev loop</text>
+            <text x="620" y="296" font-family="system-ui, sans-serif" font-size="11" fill="#8888a0" text-anchor="middle">(run, test, fix)</text>
+
+            <!-- Integration (commit, push & open PR) -->
+            <rect x="590" y="340" width="180" height="80" rx="10" fill="#141420" stroke="#4a7dff" stroke-width="1.5"/>
+            <text x="680" y="372" font-family="system-ui, sans-serif" font-size="15" fill="#7da8ff" text-anchor="middle" font-weight="600">Integration</text>
+            <text x="680" y="398" font-family="system-ui, sans-serif" font-size="12" fill="#8888a0" text-anchor="middle">commit, push & open PR</text>
+
+            <!-- Arrow Dev → commit/push -->
+            <line x1="680" y1="210" x2="680" y2="340" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" marker-end="url(#tArrowGray)"/>
+
+            <!-- Arrow commit/push → CI -->
+            <line x1="770" y1="380" x2="840" y2="380" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" marker-end="url(#tArrowGray)"/>
+
+            <!-- Dev reviews -->
+            <rect x="840" y="120" width="180" height="90" rx="10" fill="#141420" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+            <text x="930" y="158" font-family="system-ui, sans-serif" font-size="26" fill="#e8e8f0" text-anchor="middle">👤</text>
+            <text x="930" y="185" font-family="system-ui, sans-serif" font-size="14" fill="#8888a0" text-anchor="middle">Dev reviews PR</text>
+
+            <!-- CI Pipeline -->
+            <rect x="840" y="340" width="180" height="80" rx="10" fill="#141420" stroke="#4a7dff" stroke-width="1.5"/>
+            <text x="930" y="378" font-family="system-ui, sans-serif" font-size="15" fill="#7da8ff" text-anchor="middle" font-weight="600">CI Pipeline</text>
+            <text x="930" y="400" font-family="system-ui, sans-serif" font-size="12" fill="#8888a0" text-anchor="middle">Build, test, lint</text>
+
+            <!-- CD Pipeline -->
+            <rect x="1090" y="340" width="180" height="80" rx="10" fill="#141420" stroke="#22c55e" stroke-width="1.5"/>
+            <text x="1180" y="378" font-family="system-ui, sans-serif" font-size="15" fill="#86efac" text-anchor="middle" font-weight="600">CD Pipeline</text>
+            <text x="1180" y="400" font-family="system-ui, sans-serif" font-size="12" fill="#8888a0" text-anchor="middle">Deploy to prod</text>
+
+            <!-- Arrow Dev deploys → triggers CD -->
+            <line x1="1180" y1="210" x2="1180" y2="340" stroke="#22c55e" stroke-width="1.5" marker-end="url(#tArrowGreen)"/>
+            <text x="1200" y="280" font-family="system-ui, sans-serif" font-size="11" fill="#86efac">triggers</text>
+
+            <!-- Dev deploys -->
+            <rect x="1090" y="120" width="180" height="90" rx="10" fill="#141420" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+            <text x="1180" y="158" font-family="system-ui, sans-serif" font-size="26" fill="#e8e8f0" text-anchor="middle">👤</text>
+            <text x="1180" y="185" font-family="system-ui, sans-serif" font-size="14" fill="#8888a0" text-anchor="middle">Dev deploys</text>
+
+            <!-- Arrows: PO → Dev, Review → Deploy -->
+            <line x1="520" y1="165" x2="590" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" marker-end="url(#tArrowGray)"/>
+            <line x1="1020" y1="165" x2="1090" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" marker-end="url(#tArrowGray)"/>
+
+            <!-- Arrow CI pass → Review (CI triggers review) -->
+            <line x1="930" y1="340" x2="930" y2="210" stroke="#4a7dff" stroke-width="1.5" marker-end="url(#tArrowBlue)"/>
+            <text x="950" y="280" font-family="system-ui, sans-serif" font-size="11" fill="#7da8ff">pass</text>
+
+            <!-- CI fail back to dev -->
+            <line x1="840" y1="360" x2="770" y2="180" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#tArrowRed)"/>
+            <text x="790" y="260" font-family="system-ui, sans-serif" font-size="11" fill="#fca5a5" text-anchor="middle">fail</text>
+
+            <!-- Arrow markers -->
+            <defs>
+              <marker id="tArrowGray" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="rgba(255,255,255,0.3)"/></marker>
+              <marker id="tArrowBlue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4a7dff"/></marker>
+              <marker id="tArrowRed" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ef4444"/></marker>
+              <marker id="tArrowGreen" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#22c55e"/></marker>
+            </defs>
+          </svg>
+        </div>
+        <aside class="notes">
+          "So sieht Software-Entwicklung heute aus: Business gibt Requirements rein, der Dev hat seinen lokalen Loop, reviewt wird von einem anderen Dev, CI läuft, und am Ende deployed wieder ein Mensch. AI assistiert nur beim Tippen."
+        </aside>
+      </section>
+
+      <!-- SLIDE: What if Coding Was a Factory? -->
+      <section>
+        <h2>What if Coding Was a Factory?</h2>
+        <div style="display: flex; justify-content: center; margin-top: 0;">
+          <svg viewBox="0 0 1400 580" width="1700" height="700" style="max-width: 100%;" xmlns="http://www.w3.org/2000/svg">
+            <!-- Human (outside, gives spec) -->
+            <rect x="50" y="120" width="180" height="100" rx="10" fill="#141420" stroke="rgba(245,158,11,0.4)" stroke-width="1.5"/>
+            <text x="140" y="160" font-family="system-ui, sans-serif" font-size="24" fill="#e8e8f0" text-anchor="middle">👤</text>
+            <text x="140" y="192" font-family="system-ui, sans-serif" font-size="13" fill="#fbbf24" text-anchor="middle">Dev/PO/BA writes spec</text>
+
+            <!-- Arrow Human → into Factory -->
+            <line x1="230" y1="170" x2="310" y2="170" stroke="rgba(245,158,11,0.4)" stroke-width="1.5" marker-end="url(#f2ArrowGray)"/>
+            <text x="270" y="158" font-family="system-ui, sans-serif" font-size="11" fill="#fbbf24" text-anchor="middle">spec</text>
+
+            <!-- Factory boundary -->
+            <rect x="300" y="40" width="1060" height="500" rx="16" fill="rgba(34,197,94,0.02)" stroke="#22c55e" stroke-width="2"/>
+            <text x="340" y="75" font-family="system-ui, sans-serif" font-size="18" fill="#22c55e" font-weight="700" letter-spacing="2">CODING FACTORY</text>
+
+            <!-- Agent(s) write code -->
+            <rect x="340" y="120" width="200" height="90" rx="10" fill="#141420" stroke="#8b5cf6" stroke-width="1.5"/>
+            <text x="440" y="158" font-family="system-ui, sans-serif" font-size="26" fill="#b794f6" text-anchor="middle">🤖</text>
+            <text x="440" y="185" font-family="system-ui, sans-serif" font-size="14" fill="#b794f6" text-anchor="middle">Agent writes code</text>
+
+            <!-- Agent N (parallel, dashed) -->
+            <rect x="340" y="230" width="200" height="50" rx="10" fill="none" stroke="rgba(139,92,246,0.3)" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="440" y="260" font-family="system-ui, sans-serif" font-size="12" fill="rgba(139,92,246,0.5)" text-anchor="middle">Agent N (parallel)...</text>
+
+            <!-- Integration -->
+            <rect x="590" y="340" width="200" height="80" rx="10" fill="#141420" stroke="#4a7dff" stroke-width="1.5"/>
+            <text x="690" y="372" font-family="system-ui, sans-serif" font-size="15" fill="#7da8ff" text-anchor="middle" font-weight="600">Integration</text>
+            <text x="690" y="398" font-family="system-ui, sans-serif" font-size="12" fill="#8888a0" text-anchor="middle">commit, push & open PR</text>
+
+            <!-- Arrow Agent → Integration -->
+            <line x1="440" y1="210" x2="440" y2="370" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+            <line x1="440" y1="370" x2="590" y2="370" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" marker-end="url(#f2ArrowGray)"/>
+
+            <!-- CI Pipeline -->
+            <rect x="840" y="340" width="200" height="80" rx="10" fill="#141420" stroke="#4a7dff" stroke-width="1.5"/>
+            <text x="940" y="372" font-family="system-ui, sans-serif" font-size="15" fill="#7da8ff" text-anchor="middle" font-weight="600">CI Pipeline</text>
+            <text x="940" y="398" font-family="system-ui, sans-serif" font-size="12" fill="#8888a0" text-anchor="middle">Build, test, lint</text>
+
+            <!-- Arrow Integration → CI -->
+            <line x1="790" y1="380" x2="840" y2="380" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" marker-end="url(#f2ArrowGray)"/>
+
+            <!-- CI fail → back to Agent (closed loop) — straight line avoiding the label -->
+            <line x1="840" y1="355" x2="540" y2="175" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#f2ArrowRed)"/>
+            <text x="720" y="240" font-family="system-ui, sans-serif" font-size="11" fill="#fca5a5" text-anchor="middle">fail</text>
+
+            <!-- Closed loop label -->
+            <rect x="640" y="250" width="100" height="28" rx="14" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.3)" stroke-width="1"/>
+            <text x="690" y="269" font-family="system-ui, sans-serif" font-size="11" fill="#fca5a5" text-anchor="middle">closed loop</text>
+
+            <!-- Dev reviews PR -->
+            <rect x="840" y="120" width="200" height="90" rx="10" fill="#141420" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+            <text x="940" y="158" font-family="system-ui, sans-serif" font-size="26" fill="#e8e8f0" text-anchor="middle">👤</text>
+            <text x="940" y="185" font-family="system-ui, sans-serif" font-size="14" fill="#8888a0" text-anchor="middle">Dev reviews PR</text>
+
+            <!-- Arrow CI pass → Review -->
+            <line x1="940" y1="340" x2="940" y2="210" stroke="#4a7dff" stroke-width="1.5" marker-end="url(#f2ArrowBlue)"/>
+            <text x="960" y="280" font-family="system-ui, sans-serif" font-size="11" fill="#7da8ff">pass</text>
+
+            <!-- Arrow Review → back to Agent (request changes) -->
+            <line x1="840" y1="140" x2="540" y2="140" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#f2ArrowOrange)"/>
+            <text x="690" y="128" font-family="system-ui, sans-serif" font-size="11" fill="#fbbf24" text-anchor="middle">request changes</text>
+
+            <!-- CD Pipeline -->
+            <rect x="1090" y="340" width="200" height="80" rx="10" fill="#141420" stroke="#22c55e" stroke-width="1.5"/>
+            <text x="1190" y="372" font-family="system-ui, sans-serif" font-size="15" fill="#86efac" text-anchor="middle" font-weight="600">CD Pipeline</text>
+            <text x="1190" y="398" font-family="system-ui, sans-serif" font-size="12" fill="#8888a0" text-anchor="middle">Deploy to prod</text>
+
+            <!-- Arrow Review → CD -->
+            <line x1="1040" y1="165" x2="1190" y2="165" stroke="#22c55e" stroke-width="2.5"/>
+            <line x1="1190" y1="165" x2="1190" y2="340" stroke="#22c55e" stroke-width="2.5" marker-end="url(#f2ArrowGreen)"/>
+            <text x="1210" y="260" font-family="system-ui, sans-serif" font-size="11" fill="#86efac">approve</text>
+
+            <!-- Arrow markers -->
+            <defs>
+              <marker id="f2ArrowGray" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="rgba(255,255,255,0.3)"/></marker>
+              <marker id="f2ArrowBlue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4a7dff"/></marker>
+              <marker id="f2ArrowGreen" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#22c55e"/></marker>
+              <marker id="f2ArrowRed" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ef4444"/></marker>
+              <marker id="f2ArrowOrange" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#f59e0b"/></marker>
+            </defs>
+          </svg>
+        </div>
+        <aside class="notes">
+          "Gleiche Bausteine: Coding, Integration, CI, CD, Review. Aber schaut wer was macht: der Agent coded, integriert, und fixt sich selbst wenn CI fehlschlägt. Der Mensch schreibt den Spec und reviewt am Ende. CD deployed automatisch nach Approval."
+        </aside>
+      </section>
+
+      <!-- SLIDE: Why Build Your Own? -->
+      <section>
+        <h2>Why Build Your Own?</h2>
+        <div class="card-grid single-col" style="gap: 16px; max-width: 1000px;">
+          <div class="info-card card-blue" style="padding: 20px 36px;">
+            <p>Offload compute from the laptop</p>
+          </div>
+          <div class="info-card card-purple" style="padding: 20px 36px;">
+            <p>Agents work async — even while you sleep</p>
+          </div>
+          <div class="info-card card-teal" style="padding: 20px 36px;">
+            <p>Codex, Copilot Agent, Devin go there — DIY teaches you what's real</p>
+          </div>
+          <div class="info-card card-orange" style="padding: 20px 36px;">
+            <p>Self-experiment: how far can you push it today?</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- CHAPTER 2: Internals of a Coding Factory    -->
+      <!-- ============================================ -->
+
+      <section class="title-slide">
+        <div style="text-align: center;">
+          <p class="conf-tag">Chapter 2</p>
+          <h1 style="font-size: 2.8em; background: none; -webkit-text-fill-color: var(--text); color: var(--text);">Internals of a Coding Factory</h1>
+        </div>
+      </section>
+
+      <!-- SLIDE: Factory Schematic -->
+      <section>
+        <h2>The Factory — Schematic</h2>
+        <div style="display: flex; justify-content: center; margin-top: 20px;">
+          <svg viewBox="0 0 1400 750" width="1400" height="750" style="max-width: 100%;" xmlns="http://www.w3.org/2000/svg">
+            <!-- Control Plane -->
+            <rect x="50" y="30" width="1300" height="200" rx="16" fill="none" stroke="#14b8a6" stroke-width="2"/>
+            <text x="100" y="70" font-family="system-ui, sans-serif" font-size="22" fill="#14b8a6" font-weight="700" letter-spacing="2">CONTROL PLANE</text>
+
+            <!-- Me (Dev) -->
+            <rect x="100" y="100" width="220" height="100" rx="12" fill="#141420" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <text x="210" y="145" font-family="system-ui, sans-serif" font-size="20" fill="#e8e8f0" text-anchor="middle" font-weight="600">👤 Me</text>
+            <text x="210" y="175" font-family="system-ui, sans-serif" font-size="14" fill="#8888a0" text-anchor="middle">Phone / Laptop / Couch</text>
+
+            <!-- Happier -->
+            <rect x="440" y="100" width="220" height="100" rx="12" fill="#141420" stroke="#14b8a6" stroke-width="2"/>
+            <text x="550" y="145" font-family="system-ui, sans-serif" font-size="20" fill="#5eead4" text-anchor="middle" font-weight="600">Happier</text>
+            <text x="550" y="175" font-family="system-ui, sans-serif" font-size="14" fill="#8888a0" text-anchor="middle">Control &amp; Monitoring</text>
+
+            <!-- Lateralus (dashed, planned) -->
+            <rect x="780" y="100" width="220" height="100" rx="12" fill="none" stroke="rgba(245,158,11,0.4)" stroke-width="2" stroke-dasharray="8 4"/>
+            <text x="890" y="145" font-family="system-ui, sans-serif" font-size="20" fill="rgba(245,158,11,0.7)" text-anchor="middle" font-weight="600">Lateralus</text>
+            <text x="890" y="175" font-family="system-ui, sans-serif" font-size="14" fill="#8888a0" text-anchor="middle">Orchestration (planned)</text>
+
+            <!-- GitHub -->
+            <rect x="1100" y="100" width="200" height="100" rx="12" fill="#141420" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <text x="1200" y="140" font-family="system-ui, sans-serif" font-size="20" fill="#e8e8f0" text-anchor="middle" font-weight="600">GitHub</text>
+            <text x="1200" y="168" font-family="system-ui, sans-serif" font-size="13" fill="#8888a0" text-anchor="middle">Code, Issues, CI/CD</text>
+
+            <!-- Arrows in Control Plane -->
+            <line x1="320" y1="150" x2="440" y2="150" stroke="#5eead4" stroke-width="2" marker-end="url(#sArrowTeal)"/>
+            <text x="380" y="138" font-family="system-ui, sans-serif" font-size="11" fill="#5eead4" text-anchor="middle">spec</text>
+            <line x1="660" y1="150" x2="780" y2="150" stroke="rgba(245,158,11,0.4)" stroke-width="2" stroke-dasharray="6 3"/>
+
+            <!-- Execution Plane -->
+            <rect x="50" y="280" width="1300" height="440" rx="16" fill="none" stroke="#4a7dff" stroke-width="2"/>
+            <text x="100" y="320" font-family="system-ui, sans-serif" font-size="22" fill="#4a7dff" font-weight="700" letter-spacing="2">EXECUTION PLANE</text>
+            <text x="100" y="350" font-family="system-ui, sans-serif" font-size="14" fill="#8888a0">Ubuntu VM</text>
+
+            <!-- Matroschka: Bubblewrap outer -->
+            <rect x="150" y="380" width="1100" height="310" rx="14" fill="rgba(74,125,255,0.05)" stroke="#4a7dff" stroke-width="2"/>
+            <text x="190" y="415" font-family="system-ui, sans-serif" font-size="16" fill="#7da8ff" font-weight="600">Bubblewrap (Sandbox Container)</text>
+
+            <!-- Matroschka: Schism layer -->
+            <rect x="210" y="440" width="980" height="220" rx="12" fill="rgba(245,158,11,0.04)" stroke="#f59e0b" stroke-width="1.5"/>
+            <text x="250" y="475" font-family="system-ui, sans-serif" font-size="16" fill="#fbbf24" font-weight="600">Schism (CLI Shim)</text>
+
+            <!-- Matroschka: Agent core -->
+            <rect x="270" y="500" width="860" height="130" rx="10" fill="rgba(139,92,246,0.06)" stroke="#8b5cf6" stroke-width="1.5"/>
+            <text x="310" y="535" font-family="system-ui, sans-serif" font-size="16" fill="#b794f6" font-weight="600">Agent (Kiro / OpenCode)</text>
+
+            <!-- Agent internals -->
+            <rect x="310" y="555" width="180" height="55" rx="8" fill="#141420" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <text x="400" y="588" font-family="system-ui, sans-serif" font-size="14" fill="#e8e8f0" text-anchor="middle">Spec Engine</text>
+
+            <rect x="520" y="555" width="180" height="55" rx="8" fill="#141420" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <text x="610" y="588" font-family="system-ui, sans-serif" font-size="14" fill="#e8e8f0" text-anchor="middle">Tools</text>
+
+            <rect x="730" y="555" width="180" height="55" rx="8" fill="#141420" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <text x="820" y="588" font-family="system-ui, sans-serif" font-size="14" fill="#e8e8f0" text-anchor="middle">Feedback Loop</text>
+
+            <!-- Arrow from Happier down to Execution Plane -->
+            <line x1="550" y1="200" x2="550" y2="380" stroke="#5eead4" stroke-width="2" marker-end="url(#sArrowTeal)"/>
+            <text x="560" y="295" font-family="system-ui, sans-serif" font-size="12" fill="#5eead4">starts agent</text>
+
+            <!-- Arrow from Agent to GitHub (thick) -->
+            <line x1="940" y1="580" x2="1200" y2="580" stroke="#4a7dff" stroke-width="3"/>
+            <line x1="1200" y1="580" x2="1200" y2="200" stroke="#4a7dff" stroke-width="3" marker-end="url(#sArrowBlue)"/>
+            <text x="1220" y="400" font-family="system-ui, sans-serif" font-size="12" fill="#7da8ff">git push + PR</text>
+
+            <!-- Arrow markers -->
+            <defs>
+              <marker id="sArrowTeal" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#14b8a6"/>
+              </marker>
+              <marker id="sArrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#4a7dff"/>
+              </marker>
+              <marker id="sArrowGray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#8888a0"/>
+              </marker>
+            </defs>
+          </svg>
+        </div>
+        <aside class="notes">
+          "Hier seht ihr alles zusammen: Control Plane oben — da sitze ich. Execution Plane unten — da arbeitet der Agent, eingepackt wie eine Matroschka. Lateralus ist geplant, noch nicht gebaut — deshalb gestrichelt."
+        </aside>
+      </section>
+
+      <!-- SLIDE: The Control Plane -->
+      <section>
+        <h2>The Control Plane</h2>
+        <div class="card-grid single-col" style="gap: 16px;">
+          <div class="info-card card-teal" style="padding: 20px 36px;">
+            <p><strong>Happier</strong> — Start sessions, monitor progress, intervene (Web + iOS)</p>
+          </div>
+          <div class="info-card card-orange" style="padding: 20px 36px; border-style: dashed;">
+            <p><strong>Lateralus</strong> — Orchestrator for multi-agent runs (planned)</p>
+          </div>
+          <div class="info-card card-green" style="padding: 20px 36px;">
+            <p><strong>GitHub</strong> — Source of truth: Issues, PRs, Code</p>
+          </div>
+        </div>
+        <div class="fragment" style="margin-top: 40px; text-align: center;">
+          <p style="display: inline-block; background: rgba(20, 184, 166, 0.08); border: 1px solid rgba(20, 184, 166, 0.25); border-radius: 30px; padding: 14px 36px; font-size: 1.1em; color: var(--text); font-style: italic;">You define what gets built. The control plane makes it happen.</p>
+        </div>
+      </section>
+
+      <!-- SLIDE: Happier — The Control Interface -->
+      <section>
+        <h2>Happier — The Control Interface</h2>
+        <div class="card-grid single-col" style="gap: 16px; max-width: 1000px;">
+          <div class="info-card card-teal" style="padding: 20px 36px;">
+            <p>Web + iOS app — relay to the coding factory</p>
+          </div>
+          <div class="info-card card-blue" style="padding: 20px 36px;">
+            <p>Start sessions from a GitHub Issue or prompt</p>
+          </div>
+          <div class="info-card card-purple" style="padding: 20px 36px;">
+            <p>Monitor agent progress in real-time</p>
+          </div>
+          <div class="info-card card-orange" style="padding: 20px 36px;">
+            <p>Intervene: cancel, redirect, or approve</p>
+          </div>
+        </div>
+        <div class="fragment" style="margin-top: 30px; text-align: center;">
+          <p style="display: inline-block; background: rgba(20, 184, 166, 0.08); border: 1px solid rgba(20, 184, 166, 0.25); border-radius: 30px; padding: 14px 36px; font-size: 1.1em; color: var(--text); font-style: italic;">You'll see this in action in the demo.</p>
+        </div>
+        <aside class="notes">
+          "Happier ist quasi mein Remote für die Factory. Ich starte Sessions, sehe was der Agent tut, und kann jederzeit eingreifen. Gleich zeig ich euch das live."
+        </aside>
+      </section>
+
+      <!-- SLIDE: The Execution Plane -->
+      <section>
+        <h2>The Execution Plane</h2>
+        <div class="card-grid single-col" style="gap: 16px;">
+          <div class="info-card card-blue" style="padding: 20px 36px;">
+            <p><strong>Ubuntu VM</strong> — Homelab or cloud</p>
+          </div>
+          <div class="info-card card-blue" style="padding: 20px 36px;">
+            <p><strong>Bubblewrap</strong> — Sandbox container, restricted network</p>
+          </div>
+          <div class="info-card card-orange" style="padding: 20px 36px;">
+            <p><strong>Schism</strong> — CLI shim that blocks destructive/expensive commands (human-in-the-loop)</p>
+          </div>
+          <div class="info-card card-purple" style="padding: 20px 36px;">
+            <p><strong>Agent (Kiro / OpenCode)</strong> — Reads spec, plans tasks, writes code, commits</p>
+          </div>
+        </div>
+        <div class="fragment" style="margin-top: 30px; text-align: center;">
+          <p style="display: inline-block; background: rgba(74, 125, 255, 0.08); border: 1px solid rgba(74, 125, 255, 0.25); border-radius: 30px; padding: 14px 36px; font-size: 1.1em; color: var(--text); font-style: italic;">Matroschka: VM → Bubblewrap → Schism → Agent. Each layer adds safety.</p>
+        </div>
+        <aside class="notes">
+          "Wie eine Matroschka: jede Schicht fügt Sicherheit hinzu. Der Agent darf bauen, aber nicht ausbrechen."
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- CHAPTER 3: Demo                             -->
+      <!-- ============================================ -->
+
+      <section class="title-slide">
+        <div style="text-align: center;">
+          <p class="conf-tag">Chapter 3</p>
+          <h1 style="font-size: 2.8em; background: none; -webkit-text-fill-color: var(--text); color: var(--text);">Demo</h1>
+        </div>
+      </section>
+
+      <!-- SLIDE: Fake BSOD -->
+      <section data-background-color="#0078d7" data-transition="none">
+        <div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; height: 100%; padding: 80px 120px; font-family: 'Segoe UI', system-ui, sans-serif;">
+          <p style="font-size: 8em; margin-bottom: 30px;">:(</p>
+          <p style="font-size: 1.6em; color: white; margin-bottom: 20px;">Your PC ran into a problem and needs to restart.</p>
+          <p style="font-size: 1em; color: rgba(255,255,255,0.7); margin-bottom: 40px;">We're just collecting some error info, and then we'll restart for you.</p>
+          <p style="font-size: 1em; color: rgba(255,255,255,0.5);">37% complete</p>
+          <p style="font-size: 0.7em; color: rgba(255,255,255,0.4); margin-top: 60px;">Stop code: DEMO_GODS_HAVE_SPOKEN</p>
+        </div>
+        <aside class="notes">
+          Lachen lassen, kurz Pause. "Nein, Spaß — ich wechsle jetzt zu Happier."
+        </aside>
+      </section>
+
+      <!-- SLIDE: Demo placeholder -->
+      <section data-background-color="#000000" data-transition="none">
+        <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
+          <a href="https://bifrost.gimmebytes.com" target="_blank" style="display: inline-block; padding: 30px 80px; font-size: 2em; font-family: monospace; color: var(--text); background: var(--bg-card); border: 2px solid var(--accent-teal); border-radius: 16px; text-decoration: none; transition: background 0.2s, border-color 0.2s;">Launch Demo →</a>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- CHAPTER 4: Key Takeaways                    -->
+      <!-- ============================================ -->
+
+      <section class="title-slide">
+        <div style="text-align: center;">
+          <p class="conf-tag">Chapter 4</p>
+          <h1 style="font-size: 2.8em; background: none; -webkit-text-fill-color: var(--text); color: var(--text);">Key Takeaways & Outlook</h1>
+        </div>
+      </section>
+
+      <!-- SLIDE: Takeaway 1 -->
+      <section>
+        <h2>① We're Just Getting Started</h2>
+        <div class="card-grid single-col" style="gap: 16px; max-width: 1000px;">
+          <div class="info-card card-blue" style="padding: 20px 36px;">
+            <p>You can build your own coding factory — today</p>
+          </div>
+          <div class="info-card card-purple" style="padding: 20px 36px;">
+            <p>Vendors are productizing it: Codex, Cursor, Github, Multica, etc.</p>
+          </div>
+          <div class="info-card card-teal" style="padding: 20px 36px;">
+            <p>The patterns are emerging — coding factories will become a commodity</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE: Takeaway 2 -->
+      <section>
+        <h2>② The Skills That (Still) Matter</h2>
+        <div class="card-grid single-col" style="gap: 16px; max-width: 1000px;">
+          <div class="info-card card-green" style="padding: 20px 36px;">
+            <p>Systems thinking</p>
+          </div>
+          <div class="info-card card-green" style="padding: 20px 36px;">
+            <p>Distributed systems & clean architecture</p>
+          </div>
+          <div class="info-card card-green" style="padding: 20px 36px;">
+            <p>Unix fundamentals</p>
+          </div>
+          <div class="info-card card-orange" style="padding: 20px 36px;">
+            <p>Can't review what you don't understand</p>
+          </div>
+          <div class="info-card card-red" style="padding: 20px 36px;">
+            <p>15 years of building systems without AI — that foundation still matters</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE: Takeaway 3 -->
+      <section>
+        <h2>③ LLMs Are Not Intelligent</h2>
+        <div class="card-grid single-col" style="gap: 16px; max-width: 1000px;">
+          <div class="info-card card-red" style="padding: 20px 36px;">
+            <p>Stochastic — plausible, but no understanding</p>
+          </div>
+          <div class="info-card card-orange" style="padding: 20px 36px;">
+            <p>Security holes</p>
+          </div>
+          <div class="info-card card-orange" style="padding: 20px 36px;">
+            <p>Hallucinated libraries</p>
+          </div>
+          <div class="info-card card-orange" style="padding: 20px 36px;">
+            <p>Inefficient approaches</p>
+          </div>
+          <div class="info-card card-purple" style="padding: 20px 36px;">
+            <p>The agent is only as good as the senior who reviews</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE: Closing thought -->
+      <section class="title-slide">
+        <div style="text-align: center; max-width: 1000px;">
+          <h1 style="font-size: 2.2em; background: none; -webkit-text-fill-color: var(--text); color: var(--text); line-height: 1.5; font-weight: 600; font-style: italic;">10× faster code means<br>10× faster problems —<br>in socio-technical systems, speed alone isn't the answer.</h1>
+        </div>
+      </section>
+
+      <!-- SLIDE: Thank You -->
+      <section>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; height: 80%;">
+          <div>
+            <h2 style="margin-bottom: 30px;">Thank You!</h2>
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px;">
+              <div class="contact-card">
+                <span>💼</span> <a href="https://www.linkedin.com/in/marvin-kruse/">linkedin.com/in/marvin-kruse</a>
+              </div>
+              <div class="contact-card">
+                <span>🎤</span> <a href="https://talks.gimmebytes.com">talks.gimmebytes.com</a>
+              </div>
+            </div>
+            <div class="link-cards" style="flex-wrap: nowrap;">
+              <a href="https://www.otto.de/jobs/technology/techblog/" class="link-card">OTTO Tech Blog</a>
+              <a href="https://happier.dev/" class="link-card">Happier</a>
+              <a href="https://kiro.dev/" class="link-card">Kiro</a>
+              <a href="https://opencode.ai/" class="link-card">OpenCode</a>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: center;">
+            <img src="images/danke.png" alt="Danke Meme" style="max-width: 90%; max-height: 600px; border-radius: 12px;">
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      transition: 'slide',
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      center: false,
+      width: 1920,
+      height: 1080,
+      plugins: [ RevealNotes ],
+    });
+  </script>
+</body>
+</html>

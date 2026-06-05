@@ -1,0 +1,426 @@
+/* ============================================
+   Building a Coding Factory — Uni Hamburg
+   Dark background, colored cards, clean grid
+   Based on Agentic Conf theme
+   ============================================ */
+
+/* --- Back Link --- */
+.back-link {
+  position: fixed;
+  top: 16px;
+  left: 20px;
+  z-index: 100;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.back-link:hover {
+  opacity: 1;
+  color: var(--accent-blue);
+}
+
+/* --- Base --- */
+:root {
+  --bg: #0a0a0f;
+  --bg-card: #141420;
+  --bg-card-hover: #1a1a2e;
+  --text: #e8e8f0;
+  --text-muted: #8888a0;
+  --accent-blue: #4a7dff;
+  --accent-purple: #8b5cf6;
+  --accent-teal: #14b8a6;
+  --accent-orange: #f59e0b;
+  --accent-red: #ef4444;
+  --accent-green: #22c55e;
+  --accent-pink: #ec4899;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+.reveal {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  color: var(--text);
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides section {
+  padding: 40px 60px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+  font-weight: 700;
+  color: var(--text);
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+.reveal h2 {
+  font-size: 2.2em;
+  margin-bottom: 0.6em;
+}
+
+/* --- Title Slide --- */
+.title-slide {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-card {
+  background: linear-gradient(135deg, #141420 0%, #1a1a2e 100%);
+  border: 1px solid rgba(74, 125, 255, 0.2);
+  border-radius: 20px;
+  padding: 60px 80px;
+  text-align: center;
+  max-width: 900px;
+}
+
+.conf-tag {
+  font-size: 0.9em;
+  color: var(--accent-teal);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+}
+
+.title-card h1 {
+  font-size: 3.2em;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 10px 0;
+}
+
+.title-card .subtitle {
+  font-size: 1.3em;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+.speaker-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-blue);
+}
+
+.speaker-name {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin: 0;
+}
+
+.speaker-role {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* --- About Slide --- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.about-photo {
+  width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+  border: 2px solid rgba(74, 125, 255, 0.3);
+}
+
+.about-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  padding: 14px 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  border-left: 3px solid var(--accent-blue);
+}
+
+.detail-label {
+  color: var(--text-muted);
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  min-width: 120px;
+  flex-shrink: 0;
+  padding-top: 0.15em;
+}
+
+.detail-value {
+  font-weight: 500;
+}
+
+/* --- Card Grid --- */
+.card-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.card-grid.two-col {
+  grid-template-columns: 1fr 1fr;
+}
+
+.card-grid.three-col {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card-grid.single-col {
+  grid-template-columns: 1fr;
+  max-width: 1200px;
+}
+
+.info-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: background 0.2s;
+}
+
+.card-icon {
+  font-size: 2em;
+  flex-shrink: 0;
+}
+
+.info-card p {
+  margin: 0;
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+
+/* Card color accents */
+.card-blue { border-left: 4px solid var(--accent-blue); }
+.card-purple { border-left: 4px solid var(--accent-purple); }
+.card-teal { border-left: 4px solid var(--accent-teal); }
+.card-orange { border-left: 4px solid var(--accent-orange); }
+.card-red { border-left: 4px solid var(--accent-red); }
+.card-green { border-left: 4px solid var(--accent-green); }
+
+.slide-footnote {
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 30px;
+  font-size: 1.1em;
+}
+
+/* --- Flow Slide --- */
+.flow-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.flow-step {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 30px 28px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.06);
+  min-width: 200px;
+  position: relative;
+}
+
+.step-number {
+  display: block;
+  font-size: 2em;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.step-1 .step-number { color: var(--accent-blue); }
+.step-1 { border-top: 3px solid var(--accent-blue); }
+.step-2 .step-number { color: var(--accent-purple); }
+.step-2 { border-top: 3px solid var(--accent-purple); }
+.step-3 .step-number { color: var(--accent-teal); }
+.step-3 { border-top: 3px solid var(--accent-teal); }
+.step-4 .step-number { color: var(--accent-green); }
+.step-4 { border-top: 3px solid var(--accent-green); }
+.step-5 .step-number { color: var(--accent-orange); }
+.step-5 { border-top: 3px solid var(--accent-orange); }
+
+.step-label {
+  display: block;
+  font-weight: 700;
+  font-size: 1.2em;
+  margin-bottom: 6px;
+}
+
+.step-desc {
+  display: block;
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+
+.flow-arrow {
+  font-size: 2em;
+  color: var(--text-muted);
+}
+
+/* --- Spectrum / Scale --- */
+.spectrum-container {
+  margin-top: 40px;
+}
+
+.spectrum-bar {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-blue), var(--accent-purple), var(--accent-red));
+  margin: 20px 0;
+  position: relative;
+}
+
+.spectrum-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  color: var(--text-muted);
+}
+
+/* --- Takeaway Slide --- */
+.takeaway-slide {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.takeaway-card {
+  background: linear-gradient(135deg, #141420 0%, #1a1a2e 100%);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 20px;
+  padding: 60px 80px;
+  text-align: center;
+  max-width: 900px;
+}
+
+.takeaway-card blockquote {
+  font-size: 1.6em;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text);
+  border: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+  background: none;
+  box-shadow: none;
+}
+
+.takeaway-sub {
+  font-size: 1.1em;
+  color: var(--accent-teal);
+  font-weight: 600;
+}
+
+/* --- Thank You Slide --- */
+.thankyou-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  height: 80%;
+}
+
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 30px 0;
+}
+
+.contact-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  padding: 14px 20px;
+  font-size: 0.9em;
+}
+
+.contact-card a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+.link-cards {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.link-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-sm);
+  padding: 10px 18px;
+  color: var(--text) !important;
+  text-decoration: none !important;
+  font-size: 0.85em;
+  transition: border-color 0.2s;
+}
+
+.link-card:hover {
+  border-color: var(--accent-blue);
+}
+
+.danke-img {
+  max-width: 80%;
+  border-radius: var(--radius);
+}
+
+/* --- Reveal overrides --- */
+.reveal .slides section .fragment.visible {
+  opacity: 1;
+}
+
+.reveal .progress {
+  color: var(--accent-blue);
+}
+
+.reveal .controls {
+  color: var(--accent-blue);
+  font-size: 6px;
+}
+
+.reveal .slide-number {
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 20px;
+  right: 70px;
+}
+
+/* Ensure dark background */
+.reveal, body {
+  background: var(--bg);
+}

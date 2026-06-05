@@ -1,10 +1,14 @@
 {
   "title": "Building a Coding Factory",
+  "subtitle": "How AI Agents Are Reshaping Software Engineering",
   "date": "2026-06-11",
   "conference": "Universität Hamburg",
   "conferenceUrl": "https://www.uni-hamburg.de/",
   "format": "slides",
-  "type": "full",
-  "tags": ["coding", "developer-experience", "ai", "engineering"],
-  "language": "en"
+  "type": "lecture",
+  "tags": ["coding", "developer-experience", "ai", "engineering", "agentic-ai", "coding-factory"],
+  "abstract": "A practical look at how AI agents are changing the way we build software — from vibe coding to structured, spec-driven development. What works, what doesn't, and what it means for the next generation of engineers.",
+  "duration": "45min + discussion",
+  "language": "en",
+  "unlisted": true
 }
