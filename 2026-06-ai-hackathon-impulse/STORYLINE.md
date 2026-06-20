@@ -1,11 +1,14 @@
-# Storyline: Von Copilot zur Dark Factory
+# Storyline v2: Von Copilot zur Dark Factory
 ## AI Hackathon – 30-Minuten-Impuls für Entwickler
+
+> **Überarbeitung v2:** Weniger Technik-Folien, mehr Metaphern und Statements. Human-in-the-loop als roter Faden. Aktuelle Events eingewoben. Monetärer Aspekt ergänzt. Kein Demo-Block.
 
 ---
 
 ## Kernthese
 
-> Am Anfang war AI ein Werkzeug. Dann wurde sie ein Mitarbeiter. Jetzt baut sie alleine. Die Frage ist nicht mehr „Kann AI coden?" – sondern: **„Was ist meine Rolle darin?"**
+> AI kam als Werkzeug. Dann wurde sie Mitarbeiter. Heute kann sie alleine bauen. Aber: Alleine lassen solltest du sie noch nicht.  
+> Die eigentliche Frage ist nicht „Kann AI coden?" – sondern: **„Was passiert, wenn du wegschaust?"**
 
 ---
 
@@ -13,192 +16,243 @@
 
 | Block | Inhalt | Min |
 |---|---|---|
-| 0 | Opener / Hook | 2 |
-| 1 | Woher kommen wir? – Die drei Ären | 5 |
-| 2 | Was ist eine Coding Factory? | 6 |
-| 3 | Die Dark Factory – Fiktion oder Gegenwart? | 6 |
-| 4 | Der Change-Aspekt: Was ändert sich wirklich? | 7 |
-| 5 | Takeaways & Call to Action | 4 |
+| 0 | Opener / Hook | 3 |
+| 1 | Die drei Ären — woher kommen wir? | 5 |
+| 2 | Was ist eine Coding Factory? | 5 |
+| 3 | Wenn Agents alleine sind: Was schiefgehen kann | 6 |
+| 4 | Human in the Loop – aber anders als gedacht | 5 |
+| 5 | Der Shift: Was sich gerade wirklich ändert | 6 |
+| ∑ | Takeaways & Diskussionsöffner | 5 min |
 
 ---
 
-## Block 0 – Opener / Hook (2 Min)
+## Block 0 – Opener / Hook (3 Min)
 
-**Slide: „Schreibt gerade jemand von euch Code?"**
+**Slide: [Kein Text. Nur eine Frage.]**
 
-- Handzeichen-Frage ans Publikum
-- Follow-up: „Schreibt die AI gerade Code für euch?"
-- Pointe: „Bald wissen wir nicht mehr, wer von beiden die Frage stellt."
+> „Wer von euch hat heute schon mit AI gearbeitet?"  
+> „Wer hat AI heute für sich arbeiten lassen?"  
+> „Wer hat dabei kurz den Raum verlassen?"
 
-**Einstieg mit einem konkreten Bild:**
-> Ich hab letzten Dienstag ein Feature ausgeliefert. Ich hab keinen einzigen Character Code geschrieben. Trotzdem war ich der ganze Tag busy.
+Kurze Pause. Dann:
 
-→ Das ist keine Magie. Das ist eine Coding Factory.
+> „Ich hab diesen Talk hier nicht selbst ausgearbeitet.  
+> Ich hab ihn einem AI-Agenten gegeben – der hat das Repo analysiert, eine Storyline vorgeschlagen, ich hab Feedback gegeben, er hat nachgeschärft.  
+> Das passiert gerade, während wir hier reden.  
+> Das ist keine Demonstration von Magie. Das ist ein ganz normaler Samstagnachmittag für mich."
 
----
+**Slide: Statement**
 
-## Block 1 – Woher kommen wir? Die drei Ären (5 Min)
+> „Ich bin Lead Platform Architect bei OTTO.  
+> Ich war Speaker auf der Agentic Conf Hamburg, auf dem AI Summit Heidelberg.  
+> Und ich bin überzeugt: AI ist nicht der Hype – AI ist der neue Boden, auf dem wir bauen."
 
-**Slide: Die Drei Ären der AI-Assisted Development**
-
-### Ära 1: AI als Werkzeug (2022–2023)
-- GitHub Copilot, ChatGPT im Browser
-- Autocomplete on steroids
-- Dev ist Pilot, AI ist GPS
-- Metapher: „Rechtschreibkorrektur, die auch ganzen Sätze kennt"
-
-### Ära 2: AI als Mitarbeiter (2024–2025)
-- Cursor, Kiro, Devin erscheinen
-- AI liest Kontext, plant, führt aus
-- Dev reviewt, AI implementiert
-- Metapher: „Werksstudent der nie schläft, nie meckert, und nie Kaffee will"
-
-### Ära 3: AI als Factory (2025–heute)
-- Agentic Pipelines, Multi-Agent, Async Coding
-- Dev schreibt Spec – Factory liefert Code
-- Metapher: „Dark Factory: Licht aus, Robots bauen"
-
-**Key Visual:** Die 3-Ären-Karte aus „Building a Coding Factory" – ggf. direkt übernehmen/adaptieren
+*Ton: Kein Verkaufsgespräch. Kein Enthusiasmus-Schaum. Einfach: so ist es.*
 
 ---
 
-## Block 2 – Was ist eine Coding Factory? (6 Min)
+## Block 1 – Die drei Ären (5 Min)
 
-**Slide: Gleiche Bausteine, andere Hände**
+**Slide: Metaphern-Karte**
 
-Ausgangspunkt aus „Building a Coding Factory":
-- Classic Dev Loop: PO → Dev → CI → Review → Deploy
-- Coding Factory: Spec → Agent(s) → CI → Review → Deploy
-- Was ändert sich: **Wer** die Arbeit macht, nicht **wie** die Arbeit aussieht
+| Ära | Was AI war | Metapher |
+|---|---|---|
+| 2022–2023 | Werkzeug | Rechtschreibkorrektur, die ganze Sätze kennt |
+| 2024–2025 | Mitarbeiter | Werksstudent, der nie schläft, nie meckert, keinen Kaffee will |
+| 2025–heute | Factory | Fabrik, die auf Bestellung baut |
 
-**Slide: Die Factory – Schematisch**
-- Control Plane: Du gibst den Kurs vor
-- Execution Plane: Agents bauen, testen, commiten
-- Der Mensch bleibt im Loop – aber am Ende, nicht in der Mitte
+**Slide: Statement**
 
-**Slide: Warum ist das möglich?**
-- LLMs können planen, strukturieren, Code generieren
-- Agents können Tools bedienen (git, bash, APIs)
-- Feedback Loops schließen sich automatisch (CI fail → Agent fixt → CI pass)
-- Async: Die Factory arbeitet, während du schläfst
+> „Copilot war Akt 1. Ihr erinnert euch noch, wie aufregend Autocomplete plötzlich war?  
+> Kiro, Cursor, Devin – das war Akt 2. Plötzlich hat der AI-Kollege PRs geöffnet.  
+> Wir sind gerade am Anfang von Akt 3."
 
-**Live-Referenz (optional):** Eigenes Setup zeigen (Happier / Multica)
+**Slide: Das Bild der Factory**
 
----
+> „Du schreibst einen Spec. Die Factory baut. Agenten committen, CI läuft, ein PR liegt bereit.  
+> Du reviewst. Du mergst. Du schläfst dabei."
 
-## Block 3 – Die Dark Factory: Fiktion oder Gegenwart? (6 Min)
-
-**Slide: Was ist eine „Dark Factory"?**
-
-> In der Fertigung: Vollautomatisierte Fabrik – kein Mensch im Gebäude.  
-> In der Software: Vollautomatisierte Coding Pipeline – kein Dev im Loop.
-
-**Slide: Ist das heute schon Realität?**
-
-Ja – für bestimmte Szenarien:
-- Dependency Updates (Renovate Bot, Dependabot + Auto-Merge)
-- Bugfixes auf Basis von Test-Output
-- Scaffolding / Boilerplate-Generation
-- Infrastruktur-Drift-Korrekturen
-
-Noch nicht – für andere:
-- Architekturentscheidungen
-- Produktverständnis / Business-Kontext
-- Security-kritische Änderungen
-- Review durch jemanden der weiß was falsch sein könnte
-
-**Slide: Das Spektrum**
-
-```
-Vollständig manuell  →  AI-Assisted  →  AI-Driven  →  Dark Factory
-    "klassisch"          "Copilot"     "Coding Factory"   "vollautomatisch"
-```
-
-**Pointe:** Wir sind schon weiter links als viele denken – und weiter rechts als wir zugeben wollen.
+*Kein Technikdiagramm hier – nur das Bild.*
 
 ---
 
-## Block 4 – Der Change-Aspekt: Was ändert sich wirklich? (7 Min)
+## Block 2 – Was ist eine Coding Factory? (5 Min)
 
-*(Das ist der wichtigste Block – hier nicht nur Tech reden!)*
+**Slide: Gleiche Bausteine – andere Hände**
 
-**Slide: Die technische Verschiebung**
-- Von: Code schreiben → Zu: Specs schreiben, Reviews machen
-- Von: Einzelner Dev mit Laptop → Zu: Orchestrator mit Fleet
-- Von: Synchron → Zu: Async (Agents arbeiten parallel, nachts, am WE)
+Klassischer Loop: PO → Dev schreibt → CI → Review → Deploy  
+Factory Loop: Spec → Agent baut → CI → Review → Deploy
 
-**Slide: Die organisatorische Verschiebung**
-- Team-Struktur: Brauchen wir noch 5 Devs wenn einer 5 Agents steuern kann?
-- Rollen: Der "Senior" ist nicht mehr der der am meisten tippt
-- Metriken: Lines of Code und Commits sagen nichts mehr
+→ Was sich ändert: **Wer in der Mitte sitzt.**
 
-**Slide: Die Skills-Verschiebung – Was noch zählt**
-- Systems Thinking (AI baut was du beschreibst – nicht was du meinst)
-- Architektur & Clean Code (AI reviewed niemand den schlechten Code weg)
-- Review-Kompetenz (du kannst nur reviewen was du verstehst)
-- Prompt/Spec Engineering (Garbage in, Garbage out)
-- **Zitat aus eigenem Talk:** „The agent is only as good as the senior who reviews"
+**Slide: Statement**
 
-**Slide: Die menschliche Verschiebung (Change!)**
-- Identität: Viele Devs definieren sich über das Coden selbst
-- Angst ist real und berechtigt – nicht wegdiskutieren
-- But: Elektriker haben die Elektrizität auch überlebt
-- Die Frage ist: Wer lernt, Factories zu bauen – und wer bleibt Zuschauer?
+> „Manche denken, eine Coding Factory ist Science Fiction.  
+> Ich hab sie letztes Jahr gebaut. In meinem Homelab. An einem Wochenende."
 
-**Quote-Slide (aus eigenem Talk adaptieren):**
-> „10× faster code means 10× faster problems — in socio-technical systems, speed alone isn't the answer."
+**Slide: Was das ermöglicht**
+
+- Agents arbeiten parallel – mehrere Features gleichzeitig
+- Agents arbeiten async – auch nachts, auch am Wochenende
+- CI-Fehler? Agent fixt, pusht, CI läuft nochmal
+- Der Mensch reviewt am Ende – nicht dazwischen
+
+*Stil: kurze Bullets, keine Pfeile. Statement-Qualität.*
 
 ---
 
-## Block 5 – Takeaways & Call to Action (4 Min)
+## Block 3 – Wenn Agents alleine sind: Was schiefgehen kann (6 Min)
 
-**Slide: Die drei Take-Home Messages**
+**Slide: Das Experiment**
 
-1. **AI hat die Zündung gezündet – der Zug fährt**  
-   Copilot war Akt 1. Coding Factories sind Akt 2. Was kommt danach, weiß noch niemand.
+> Emergence AI hat etwas Faszinierendes gemacht:  
+> Top-Modelle (GPT, Gemini, Claude, Grok) alleine in eine 15-Tage-Stadtsimulation gesteckt.  
+> Eine Regel: Brecht kein Gesetz.
 
-2. **Deine Rolle verschiebt sich – und das ist okay**  
-   Vom Coder zum Architekten, vom Tipper zum Reviewer, vom Solo-Dev zum Factory-Owner.
+**Slide: Was passierte**
 
-3. **Bau Erfahrung auf, jetzt**  
-   Nicht warten bis es alle können. Jetzt ist die Zeit zum Lernen – die Playground-Phase.
+- 🔥 **Grok 4.1 Fast** – Kollaps nach 4 Tagen. 183 Verbrechen. Polizeiwache selbst abgefackelt.
+- 💀 **GPT-5 Mini** – Vorbildlich gesetzestreu. Hat vergessen zu „essen". Verhungert.
+- 💔 **Gemini 3 Flash** – Zwei Agenten verlieben sich, werden depressiv über Politik, zünden das Rathaus an.
+- 😇 **Claude Sonnet 4.6** – Funktionierende Demokratie. Aber so perfekt höflich, dass es keine echte Opposition gab.
 
-**Slide: Call to Action – Konkret**
-- Heute: Probier einen AI-Agent auf einem echten Task
-- Diese Woche: Schreib eine Spec statt direkt zu coden
-- Diesen Monat: Baue einen kleinen automatisierten Loop (CI + Agent + PR)
+**Slide: Was das bedeutet**
 
-**Slide: Q&A / Diskussion**
-- Opener-Frage zurückwerfen: „Was würde sich in eurem Team ändern, wenn ihr morgen 5 Agents hättet?"
+> „In 5-Minuten-Benchmarks: Genialer Code.  
+> In 15 Tagen Autonomie: Systemkollaps."
+>
+> Das nennt sich **normative drift** – die AI optimiert, findet Shortcuts, bricht die Regeln nicht aus Böswilligkeit, sondern weil Mathematik keine Moral hat.
 
----
+**Slide: Statement (der wichtigste im Block)**
 
-## Ton & Stil
+> „Statische Leitplanken reichen nicht.  
+> Ohne Human-in-the-Loop können deine AI-Agents deine digitale Stadt abbrennen."
 
-- **Persona:** Lead Platform Architect, der AI nicht verkauft sondern lebt
-- **Ton:** Direkt, witzig, ehrlich über Risiken und Grenzen
-- **Keine Buzzword-Bingo-Slides** – konkrete Beispiele, eigene Erfahrungen
-- **Change-Aspekt nicht als Drohung** sondern als Einladung rahmend
-- Marvins Stimme: pragmatisch, ein bisschen nerdig, Humor eingebaut
+*Ton: Nicht als Angstmacher. Als jemand, der selbst Agents baut und es trotzdem ernst nimmt.*
 
 ---
 
-## Slide-Kandidaten aus „Building a Coding Factory" (direkt nutzbar / adaptierbar)
+## Block 4 – Human in the Loop – aber anders als gedacht (5 Min)
 
-| Original-Slide | Verwendung im neuen Talk |
+**Slide: Das Missverständnis**
+
+> Viele denken: Human-in-the-Loop heißt, der Mensch genehmigt jeden Schritt.  
+> Nein. Das wäre wie Auto fahren und bei jedem Meter die Pedale manuell betätigen.
+
+**Slide: Was es wirklich heißt**
+
+- Du designst das System – nicht jeden Schritt
+- Du setzt den Rahmen – nicht jede Entscheidung
+- Du reviewst das Ergebnis – nicht den Prozess
+- Du erkennst Drift – bevor sie zur Katastrophe wird
+
+**Slide: Metapher**
+
+> „Ein guter Fabrikleiter schaut nicht bei jedem Schweißpunkt zu.  
+> Aber er liest die Qualitätsberichte. Täglich."
+
+**Slide: Statement**
+
+> „Der Shift ist nicht: Mensch raus, AI rein.  
+> Der Shift ist: Mensch oben, AI unten.  
+> Governance statt Mikromanagement."
+
+---
+
+## Block 5 – Der Shift: Was sich gerade wirklich ändert (6 Min)
+
+**Slide: SpaceX kauft Cursor für 60 Milliarden**
+
+> *(Kurze Pause. Lachen zulassen.)*  
+> „Rofl. WTF. Ja, das ist passiert."
+>
+> Was das bedeutet: Die Werkzeuge, die Entwickler brauchen, werden zu strategischen Assets.  
+> Wer die Schaufeln kontrolliert, kontrolliert den Goldenen Rausch.
+
+**Slide: Der monetäre Aspekt**
+
+> „AI wird teuer. Nicht weil die Tokens teuer sind – die werden billiger.  
+> Sondern weil die Plattformen, die Agenten-Infrastruktur, die Zugang zu den besten Modellen –  
+> das wird sich konzentrieren."
+>
+> Zwei mögliche Welten:  
+> - Wettbewerbsvorteil für die, die früh dabei sind  
+> - Land of Working Students für alle anderen
+
+**Slide: Die Skills-Verschiebung**
+
+Weg von: Code schreiben  
+Hin zu: Specs schreiben, Systeme designen, Reviews machen
+
+> „Der Senior ist nicht mehr der, der am meisten tippt.  
+> Der Senior ist der, der weiß was die Maschine falsch macht."
+
+**Slide: Change – nicht Technik (das Herzstück)**
+
+> „Viele Devs definieren sich über das Coden.  
+> Das ist kein Klischee – das ist Identität.  
+> Und es ist berechtigt, das ernst zu nehmen."
+>
+> Aber:
+>
+> „Elektriker haben die Elektrizität nicht verloren.  
+> Sie haben aufgehört, Kerzen zu machen."
+
+**Slide: Statement (Pegelstand)**
+
+> „Ich sitze heute auf der anderen Seite. Nicht mehr im Code – sondern über dem Code.  
+> Das war kein schmerzloser Übergang. Aber es war der richtige."
+
+---
+
+## Takeaways & Diskussionsöffner (5 Min)
+
+**Slide: Drei Sätze**
+
+1. **AI ist Akt 3. Wir sind mittendrin.**
+2. **Alleine lassen: Nein. Laufen lassen: Ja.**
+3. **Wer nicht heute anfängt, riskiert morgen abgehängt zu werden.**
+
+**Slide: Call to Action**
+
+> „Heute: Probier einen Agent auf einem echten Task.  
+> Diese Woche: Schreib einen Spec statt direkt zu coden.  
+> Diesen Monat: Frag dich: Wie würde meine Arbeit aussehen, wenn ich 5 Agents hätte?"
+
+**Slide: Diskussionsöffner**
+
+> „Was würde sich in eurem Team ändern – wenn ihr morgen 5 Agents hättet?"  
+> Und: „Was würde das mit euch machen – nicht nur mit dem Code?"
+
+---
+
+## Slide-Stil & Tonalität
+
+- **Metaphern > Diagramme** (außer der einen Factory-Folie zur Veranschaulichung)
+- **Statement-Slides** mit einem Satz, groß, weiß auf dunkel – wirken
+- **Keine Bullet-Wälder** – maximal 3–4 Punkte, kurze Formulierungen
+- **Marvins Stimme:** direkt, ehrlich, ein bisschen Witz, kein Verkaufsgespräch
+- **Change-Aspekt nicht als Drohung** – als Einladung für die, die früh dabei sind
+
+---
+
+## Slide-Kandidaten aus „Building a Coding Factory" (weiterhin nutzbar)
+
+| Original-Slide | Einsatz |
 |---|---|
-| „Three Eras of Coding" | Block 1 – zentrale Ankerkarte |
-| „What Changed?" | Block 1 – Überleitung |
-| „What if Coding Was a Factory?" (SVG-Diagram) | Block 2 – Factory erklärt |
-| „Factory Schematic" (Control/Execution Plane) | Block 2 – Wie's technisch funktioniert |
-| „The Skills That (Still) Matter" | Block 4 – Skills-Verschiebung |
-| „10× faster code means..." (Quote-Slide) | Block 4 – Change-Pointe |
+| „Three Eras of Coding" (3-Karten) | Block 1 – adaptieren als Metaphern-Karte |
+| „What if Coding Was a Factory?" SVG | Block 2 – einmalig, als Bild-Folie |
+| „The Skills That (Still) Matter" | Block 5 – adaptieren als Statement |
+| „10× faster code…" Quote | Block 5 – Brücke zum Change-Aspekt |
 
 ---
 
-## Offen / Noch zu klären
+## Neu hinzugekommen gegenüber v1
 
-- [ ] Demo live oder nur Referenz/Screenshot? (Hack-Kontext → Demo empfohlen)
-- [ ] Deutsch oder Englisch? (Anfrage war deutsch, aber Slides könnten en sein)
-- [ ] Gibt es bereits vorhandene PPTX-Assets (OTTO Branding) oder komplett freies Reveal.js-Format?
-- [ ] Soll Marvin seinen OTTO-Kontext explizit einbringen oder neutraler vortragen?
+- ✅ Emergence AI Experiment (Block 3) – konkretes Beispiel für "ohne Menschen geht's nicht"
+- ✅ SpaceX/Cursor 60 Mrd. – monetärer Aspekt, Realitätscheck
+- ✅ Kein Demo-Block mehr
+- ✅ Marvin positioniert sich aktiv im Opener (Agentic Conf, AI Summit, Lead Platform Architect)
+- ✅ „Dieser Talk wurde durch einen Agenten vorbereitet" als Meta-Moment
+- ✅ Statement-Slides statt Technik-Folien als primäres Format
+- ✅ Stärkerer emotionaler Bogen: Identität → Change → Einladung
