@@ -99,6 +99,16 @@ Factory Loop: Spec → Agent baut → CI → Review → Deploy
 
 *Stil: kurze Bullets, keine Pfeile. Statement-Qualität.*
 
+**Slide: Und wenn du nicht selbst bauen willst?**
+
+> „Ich empfehle: Bau es einmal selbst. Dann verstehst du was dahinter steckt.  
+> Aber wenn du heute schon liefern willst – der Markt holt auf.  
+> Tools wie Multica haben dieses Muster schon produktisiert."
+
+Positionierung: Du warst früher dran als die Produkte. Das gibt dir Glaubwürdigkeit – nicht Produkt-Pitch, sondern Bestätigung des Trends.
+
+*Ton: kein Werbeblock. Ein Satz, der zeigt: Das Muster ist real, weil andere jetzt auch darauf setzen.*
+
 ---
 
 ## Block 3 – Wenn Agents alleine sind: Was schiefgehen kann (6 Min)
