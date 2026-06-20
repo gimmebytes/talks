@@ -1,0 +1,13 @@
+{
+  "title": "Von Copilot zur Dark Factory",
+  "subtitle": "Wie AI die Software-Entwicklung neu erfindet – und was das für uns bedeutet",
+  "date": "2026-06-24",
+  "conference": "AI Hackathon (intern)",
+  "format": "slides",
+  "type": "impulse",
+  "tags": ["agentic-ai", "coding-factory", "developer-experience", "change", "ai"],
+  "abstract": "Ein 30-Minuten-Impuls für Entwickler: Woher kommt die AI-Welle, wo stehen wir heute, und was bedeutet die 'Coding Dark Factory' – wo AI ohne menschliche Hand baut – für uns als Engineers, Teams und Organisation.",
+  "duration": "30min",
+  "language": "de",
+  "speaker_role": "Lead Platform Architect"
+}
