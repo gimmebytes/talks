@@ -272,12 +272,11 @@ strong { font-weight: 500; }
 }
 
 .bottleneck-quote {
-  margin-top: 18px; padding: 20px 24px; cursor: pointer;
+  margin-top: 18px; padding: 20px 24px;
   border-left: 2px solid var(--brand); background: var(--ivory);
-  opacity: 0; max-height: 0; overflow: hidden;
-  transition: opacity 0.4s, max-height 0.4s;
+  opacity: 1; max-height: none; overflow: hidden;
 }
-.bottleneck-quote.visible { opacity: 1; max-height: 200px; }
+.bottleneck-quote.visible { opacity: 1; max-height: none; }
 .bq-mark {
   font-family: var(--serif); font-weight: 500; font-size: 32px;
   color: var(--brand); line-height: 0.8;
@@ -468,7 +467,6 @@ body:focus-visible {
   <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='03 Werkzeug'>
     <div class='slide-inner'>
       <div class='head'><span class='num'>2022+</span><h2>Werkzeug</h2></div>
-      <p class='lead'>Du schreibst. AI hilft beim Tippen.</p>
       <div class='stage-diagram'>
         <span class='sd-node'>Du tippst</span>
         <span class='sd-arrow'>→</span>
@@ -476,7 +474,6 @@ body:focus-visible {
         <span class='sd-arrow'>→</span>
         <span class='sd-node'>Code</span>
       </div>
-      <p class='stage-note'>Autocomplete auf Steroiden. Du behältst die volle Kontrolle.</p>
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
@@ -487,7 +484,6 @@ body:focus-visible {
   <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='04 Mitarbeiter'>
     <div class='slide-inner'>
       <div class='head'><span class='num'>2024+</span><h2>Mitarbeiter</h2></div>
-      <p class='lead'>AI liest Kontext, plant, führt aus. Du reviewst.</p>
       <div class='stage-diagram'>
         <span class='sd-node'>Du gibst Aufgabe</span>
         <span class='sd-arrow'>→</span>
@@ -497,7 +493,6 @@ body:focus-visible {
         <span class='sd-arrow'>→</span>
         <span class='sd-node sd-human'>Du reviewst</span>
       </div>
-      <p class='stage-note'>Wie ein Werksstudent, der nie schläft und keinen Kaffee will.</p>
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
@@ -508,7 +503,6 @@ body:focus-visible {
   <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='05 Fabrik'>
     <div class='slide-inner'>
       <div class='head'><span class='num'>2026+</span><h2>Fabrik</h2></div>
-      <p class='lead'>Du schreibst den Spec. Agents bauen parallel.</p>
       <div class='stage-diagram'>
         <span class='sd-node'>Spec</span>
         <span class='sd-arrow'>→</span>
@@ -532,7 +526,6 @@ body:focus-visible {
   <section class='slide s-content' data-slide-kind='content' data-screen-label='06 Coding Factory'>
     <div class='slide-inner'>
       <div class='head'>
-        <p class='num'>01.2</p>
         <h2>Die Coding Factory.</h2>
       </div>
       <div class='body'>
@@ -541,27 +534,7 @@ body:focus-visible {
           <li>CI-Fehler? Agent fixt, pusht, CI läuft erneut</li>
           <li>Der Mensch reviewt am Ende — nicht dazwischen</li>
         </ul>
-        <div class='factory-diagram' style='cursor:pointer' onclick='document.getElementById("bottleneck").classList.toggle("visible")'>
-          <div class='factory-lanes'>
-            <div class='factory-lane'><span class='lane-label'>Agent 1</span><span class='lane-line'></span></div>
-            <div class='factory-lane'><span class='lane-label'>Agent 2</span><span class='lane-line'></span></div>
-            <div class='factory-lane'><span class='lane-label'>Agent 3</span><span class='lane-line'></span></div>
-          </div>
-          <div class='factory-merge'>
-            <span class='merge-arrow'>→</span>
-            <span class='merge-label'>main</span>
-          </div>
-          <div class='factory-review'>
-            <span class='review-label'>Human Review</span>
-          </div>
-          <div class='factory-merge'>
-            <span class='merge-arrow'>→</span>
-          </div>
-          <div class='factory-prod'>
-            <span class='prod-label'>Prod</span>
-          </div>
-        </div>
-        <blockquote class='bottleneck-quote' id='bottleneck' onclick='this.classList.toggle("visible")'>
+        <blockquote class='bottleneck-quote visible' id='bottleneck'>
           <span class='bq-mark'>"</span>
           <span class='bq-text'>Was wenn der Mensch zum Bottleneck wird?<br>Oder dein Prozess?</span>
           <span class='bq-example'>50 PRs/Tag reviewen. Feature in 1 Sprint gebaut — 16 Wochen Wartezeit auf Onsite-Test.</span>
@@ -590,7 +563,6 @@ body:focus-visible {
   <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='08 Normative Drift'>
     <div class='slide-inner'>
       <div class='head'>
-        <p class='num'>02.1</p>
         <h2>15 Tage Autonomie.</h2>
       </div>
       <div class='body'>
@@ -613,7 +585,6 @@ body:focus-visible {
   <section class='slide s-content' data-slide-kind='content' data-screen-label='09 Human in the Loop'>
     <div class='slide-inner'>
       <div class='head'>
-        <p class='num'>02.2</p>
         <h2>Deine Guardrails.</h2>
       </div>
       <div class='body'>
@@ -659,19 +630,9 @@ body:focus-visible {
   </section>
 
   <!-- 10 · CONTENT — Der Shift -->
-  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='10 Der Shift'>
+  <section class='slide s-statement' data-slide-kind='content' data-screen-label='10 Der Shift'>
     <div class='slide-inner'>
-      <div class='head'>
-        <p class='num'>03</p>
-        <h2>Was sich gerade ändert.</h2>
-      </div>
-      <div class='body'>
-        <ul class='dash'>
-          <li><strong>Skills-Shift:</strong> weg von Code schreiben, hin zu Specs schreiben und Systeme designen</li>
-          <li><strong>Identität:</strong> Elektriker haben die Elektrizität nicht verloren — sie haben aufgehört, Kerzen zu machen</li>
-        </ul>
-        <p><strong>Der Senior ist nicht mehr der, der am meisten tippt. Der Senior ist der, der weiss, was die Maschine falsch macht.</strong></p>
-      </div>
+      <blockquote>Der Senior ist nicht mehr der, der am meisten tippt.<br>Sondern der, der weiss, was die Maschine falsch macht.</blockquote>
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
