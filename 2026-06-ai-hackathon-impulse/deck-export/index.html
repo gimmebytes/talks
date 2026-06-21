@@ -186,29 +186,36 @@ strong { font-weight: 500; }
   border-left: 2px solid var(--brand); padding-left: 28px;
 }
 
-.steps {
-  display: flex; gap: 32px; align-items: flex-end; width: 100%; padding-top: 40px;
+.stage-diagram {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  margin-top: 24px; padding: 28px 32px;
+  border: 1px solid var(--border); background: var(--ivory);
 }
-.step {
-  flex: 1; display: flex; flex-direction: column; gap: 12px;
-  padding: 36px 32px; border: 1px solid var(--border);
-  border-bottom: 3px solid var(--brand); background: var(--ivory);
+.sd-node {
+  font-family: var(--mono); font-size: 14px; font-weight: 500;
+  color: var(--near-black); letter-spacing: 0.02em;
+  padding: 8px 14px; border: 1px solid var(--border); background: var(--parchment);
+  border-radius: 2px; white-space: nowrap;
 }
-.step-1 { min-height: 200px; }
-.step-2 { min-height: 260px; }
-.step-3 { min-height: 320px; }
-.step-year {
-  font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums;
-  letter-spacing: 0.06em; color: var(--brand);
+.sd-node.sd-tool {
+  color: var(--brand); border-color: var(--brand); border-width: 1.5px;
 }
-.step-label {
-  font-family: var(--serif); font-weight: 500;
-  font-size: clamp(32px, 3.5vw, 48px); line-height: 1.1;
-  color: var(--near-black); letter-spacing: -0.5px;
+.sd-node.sd-human {
+  color: var(--ivory); background: var(--brand-dark); border-color: var(--brand-dark);
 }
-.step-tools {
-  font-family: var(--mono); font-size: 13px; color: var(--stone);
-  letter-spacing: 0.02em; margin-top: auto;
+.sd-node.sd-prod {
+  color: var(--ivory); background: var(--brand); border-color: var(--brand);
+}
+.sd-arrow {
+  font-family: var(--mono); font-size: 18px; color: var(--stone);
+}
+.stage-note {
+  margin-top: 16px; font-family: var(--serif); font-weight: 400;
+  font-size: 17px; color: var(--olive); line-height: 1.4;
+}
+.lead {
+  font-family: var(--serif); font-weight: 500; font-size: 21px;
+  color: var(--near-black); line-height: 1.4; max-width: 50ch;
 }
 
 .slide-takeaway {
@@ -441,7 +448,7 @@ body:focus-visible {
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>01 / 09</span>
+      <span class='counter'>01 / 11</span>
     </div>
   </section>
 
@@ -453,40 +460,76 @@ body:focus-visible {
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>02 / 09</span>
+      <span class='counter'>02 / 11</span>
     </div>
   </section>
 
-  <!-- 03 · CONTENT — Drei Stufen -->
-  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='03 Drei Stufen'>
+  <!-- 03–05 · CONTENT — Drei Stufen (Werkzeug / Mitarbeiter / Fabrik) -->
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='03 Werkzeug'>
     <div class='slide-inner'>
-      <div class='steps'>
-        <div class='step step-1'>
-          <span class='step-year'>2022+</span>
-          <h3 class='step-label'>Werkzeug</h3>
-          <span class='step-tools'>ChatGPT · GitHub Copilot</span>
-        </div>
-        <div class='step step-2'>
-          <span class='step-year'>2024+</span>
-          <h3 class='step-label'>Mitarbeiter</h3>
-          <span class='step-tools'>Cursor · Claude</span>
-        </div>
-        <div class='step step-3'>
-          <span class='step-year'>2026+</span>
-          <h3 class='step-label'>Fabrik</h3>
-          <span class='step-tools'>Codex · Kiro · Multica</span>
-        </div>
+      <div class='head'><span class='num'>2022+</span><h2>Werkzeug</h2></div>
+      <p class='lead'>Du schreibst. AI hilft beim Tippen.</p>
+      <div class='stage-diagram'>
+        <span class='sd-node'>Du tippst</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node sd-tool'>ChatGPT · Copilot</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node'>Code</span>
+      </div>
+      <p class='stage-note'>Autocomplete auf Steroiden. Du behältst die volle Kontrolle.</p>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · 2026</span>
+      <span class='counter'>03 / 11</span>
+    </div>
+  </section>
+
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='04 Mitarbeiter'>
+    <div class='slide-inner'>
+      <div class='head'><span class='num'>2024+</span><h2>Mitarbeiter</h2></div>
+      <p class='lead'>AI liest Kontext, plant, führt aus. Du reviewst.</p>
+      <div class='stage-diagram'>
+        <span class='sd-node'>Du gibst Aufgabe</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node sd-tool'>Cursor · Claude</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node'>Code + PR</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node sd-human'>Du reviewst</span>
+      </div>
+      <p class='stage-note'>Wie ein Werksstudent, der nie schläft und keinen Kaffee will.</p>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · 2026</span>
+      <span class='counter'>04 / 11</span>
+    </div>
+  </section>
+
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='05 Fabrik'>
+    <div class='slide-inner'>
+      <div class='head'><span class='num'>2026+</span><h2>Fabrik</h2></div>
+      <p class='lead'>Du schreibst den Spec. Agents bauen parallel.</p>
+      <div class='stage-diagram'>
+        <span class='sd-node'>Spec</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node sd-tool'>Agents</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node'>CI</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node sd-human'>Human</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node sd-prod'>Prod</span>
       </div>
       <p class='slide-takeaway'>Die Modelle werden besser, das Tooling reifer — und Patterns setzen sich.</p>
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>03 / 09</span>
+      <span class='counter'>05 / 11</span>
     </div>
   </section>
 
-  <!-- 04 · CONTENT — Coding Factory -->
-  <section class='slide s-content' data-slide-kind='content' data-screen-label='04 Coding Factory'>
+  <!-- 06 · CONTENT — Coding Factory -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='06 Coding Factory'>
     <div class='slide-inner'>
       <div class='head'>
         <p class='num'>01.2</p>
@@ -527,24 +570,24 @@ body:focus-visible {
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>04 / 09</span>
+      <span class='counter'>06 / 11</span>
     </div>
   </section>
 
-  <!-- 05 · CHAPTER (dark hero) -->
-  <section class='slide s-chapter dark-hero' data-slide-kind='chapter' data-screen-label='05 Agents alleine'>
+  <!-- 07 · CHAPTER (dark hero) -->
+  <section class='slide s-chapter dark-hero' data-slide-kind='chapter' data-screen-label='07 Agents alleine'>
     <div class='slide-inner'>
       <p class='num'>02</p>
       <h2>Wenn Agents alleine sind.</h2>
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>05 / 09</span>
+      <span class='counter'>07 / 11</span>
     </div>
   </section>
 
-  <!-- 06 · CONTENT — Normative Drift -->
-  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='06 Normative Drift'>
+  <!-- 08 · CONTENT — Normative Drift -->
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='08 Normative Drift'>
     <div class='slide-inner'>
       <div class='head'>
         <p class='num'>02.1</p>
@@ -562,12 +605,12 @@ body:focus-visible {
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>06 / 09</span>
+      <span class='counter'>08 / 11</span>
     </div>
   </section>
 
-  <!-- 07 · CONTENT — Human in the Loop -->
-  <section class='slide s-content' data-slide-kind='content' data-screen-label='07 Human in the Loop'>
+  <!-- 09 · CONTENT — Human in the Loop -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='09 Human in the Loop'>
     <div class='slide-inner'>
       <div class='head'>
         <p class='num'>02.2</p>
@@ -611,12 +654,12 @@ body:focus-visible {
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>07 / 09</span>
+      <span class='counter'>09 / 11</span>
     </div>
   </section>
 
-  <!-- 08 · CONTENT — Der Shift -->
-  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='08 Der Shift'>
+  <!-- 10 · CONTENT — Der Shift -->
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='10 Der Shift'>
     <div class='slide-inner'>
       <div class='head'>
         <p class='num'>03</p>
@@ -632,12 +675,12 @@ body:focus-visible {
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>08 / 09</span>
+      <span class='counter'>10 / 11</span>
     </div>
   </section>
 
-  <!-- 09 · END (dark hero) -->
-  <section class='slide s-end dark-hero' data-slide-kind='end' data-screen-label='09 Ende'>
+  <!-- 11 · END (dark hero) -->
+  <section class='slide s-end dark-hero' data-slide-kind='end' data-screen-label='11 Ende'>
     <div class='slide-inner'>
       <div class='takeaways'>
         <span><span class='num-t'>01</span> AI ist Akt 3. Wir sind mittendrin.</span>
@@ -649,7 +692,7 @@ body:focus-visible {
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>09 / 09</span>
+      <span class='counter'>11 / 11</span>
     </div>
   </section>
 
