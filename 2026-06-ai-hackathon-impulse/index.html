@@ -1,340 +1,1054 @@
-<!doctype html>
-<html lang="de">
+<!DOCTYPE html>
+<html lang='en'>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Von Copilot zur Dark Factory</title>
-  <link rel="stylesheet" href="dist/reset.css">
-  <link rel="stylesheet" href="dist/reveal.css">
-  <link rel="stylesheet" href="dist/theme/white.css">
-  <link rel="stylesheet" href="style.css">
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1' />
+<title>From Copilot to Dark Factory · AI Hackathon Impulse</title>
+<link rel='preconnect' href='https://fonts.googleapis.com' />
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+<link href='https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500&family=Source+Sans+3:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap' rel='stylesheet' />
+<style>
+:root {
+  --parchment: #f5f4ed;
+  --ivory: #faf9f5;
+  --brand: #F00020;
+  --brand-dark: #3D4854;
+  --brand-deep: #2C353F;
+  --brand-light: #FF4D66;
+  --brand-steel: #FFB3BC;
+  --near-black: #141413;
+  --dark-warm: #3d3d3a;
+  --olive: #504e49;
+  --stone: #6b6a64;
+  --border: #e8e6dc;
+  --border-soft: #e5e3d8;
+  --serif: 'Source Serif 4', Charter, Georgia, Palatino, 'Times New Roman', serif;
+  --sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', Consolas, Monaco, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--parchment);
+  color: var(--near-black);
+  font-family: var(--serif);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+strong { font-weight: 500; }
+
+#deck {
+  position: fixed; inset: 0;
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 5;
+  will-change: transform;
+}
+.slide {
+  width: 100vw; height: 100vh;
+  flex: 0 0 100vw;
+  position: relative;
+  padding: 80px 96px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--parchment);
+  color: var(--near-black);
+}
+.slide.dark {
+  background: var(--brand);
+  color: var(--ivory);
+}
+.slide.dark-hero {
+  background: var(--brand-dark);
+  color: var(--ivory);
+}
+.slide-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-content: center;
+  gap: 24px;
+  position: relative;
+  min-height: 0;
+}
+
+.slide-foot {
+  position: absolute;
+  bottom: 28px; left: 0; right: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 96px;
+  font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: 0.08em; color: var(--stone);
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums; z-index: 4; pointer-events: none;
+}
+.slide.dark .slide-foot { color: rgba(250, 249, 245, 0.74); }
+.slide.dark-hero .slide-foot { color: rgba(250, 249, 245, 0.72); }
+.slide-foot .counter {
+  font-family: var(--mono); letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  color: var(--near-black); background: var(--ivory);
+  padding: 4px 8px; border: 1px solid var(--border); border-radius: 2px;
+}
+.slide.dark .slide-foot .counter {
+  color: var(--ivory); background: rgba(250, 249, 245, 0.12);
+  border-color: rgba(250, 249, 245, 0.22);
+}
+.slide.dark-hero .slide-foot .counter {
+  color: var(--ivory); background: rgba(250, 249, 245, 0.08);
+  border-color: rgba(250, 249, 245, 0.18);
+}
+
+
+</style>
+<style>
+@keyframes kami-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+.s-cover .slide-inner > * { animation: kami-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.s-cover .slide-inner > *:nth-child(2) { animation-delay: 0.08s; }
+.s-cover .slide-inner > *:nth-child(3) { animation-delay: 0.16s; }
+.s-cover .slide-inner {
+  grid-template-columns: 1fr; text-align: left;
+  align-content: center; gap: 24px; max-width: 980px;
+}
+.s-cover h1 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(60px, 7vw, 110px); line-height: 1.02;
+  letter-spacing: -1.5px; color: var(--ivory);
+}
+.s-cover .meta {
+  font-family: var(--mono); font-size: 12px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(250, 249, 245, 0.78); font-variant-numeric: tabular-nums;
+}
+
+.s-chapter .slide-inner { grid-template-columns: 1fr; text-align: center; align-content: center; gap: 28px; }
+.s-chapter .num {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(64px, 8vw, 130px); color: rgba(250, 249, 245, 0.7);
+  letter-spacing: -0.5px; line-height: 1; font-variant-numeric: tabular-nums;
+}
+.s-chapter h2 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(44px, 5vw, 78px); line-height: 1.1;
+  letter-spacing: -0.6px; color: var(--ivory); margin: 0 auto; max-width: 22ch;
+}
+
+.s-content .slide-inner { grid-template-columns: 1fr 2.4fr; gap: 56px; align-content: center; }
+.s-content.layout-full .slide-inner { grid-template-columns: 1fr; max-width: 980px; }
+.s-content .head { display: flex; flex-direction: column; gap: 14px; }
+.s-content .num {
+  font-family: var(--serif); font-weight: 500; font-size: 14px;
+  letter-spacing: 0.02em; color: var(--brand); font-variant-numeric: tabular-nums;
+}
+.s-content h2 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(34px, 3.8vw, 52px); line-height: 1.1;
+  letter-spacing: -0.6px; color: var(--near-black); margin: 0; max-width: 14ch;
+}
+.s-content .body { display: flex; flex-direction: column; gap: 18px; }
+.s-content .body p {
+  font-family: var(--serif); font-weight: 400; font-size: 18px;
+  line-height: 1.55; color: var(--dark-warm); max-width: 52ch;
+}
+.s-content .body p strong { color: var(--near-black); font-weight: 500; }
+.s-content ul.dash {
+  list-style: none; padding: 0; margin: 4px 0 0;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.s-content ul.dash li {
+  position: relative; padding-left: 18px;
+  font-family: var(--serif); font-weight: 400; font-size: 17px;
+  line-height: 1.5; color: var(--dark-warm);
+}
+.s-content ul.dash li::before {
+  content: ''; position: absolute; left: 0; top: 0.72em;
+  width: 10px; height: 1.5px; background: var(--brand);
+}
+.source {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.02em;
+  color: var(--stone); margin-top: 16px; font-variant-numeric: tabular-nums;
+}
+
+.s-statement .slide-inner { grid-template-columns: 1fr; max-width: 1080px; align-content: center; gap: 32px; }
+.s-statement blockquote {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(28px, 3.2vw, 42px); line-height: 1.3;
+  color: var(--near-black); margin: 0; letter-spacing: -0.4px; max-width: 28ch;
+  border-left: 2px solid var(--brand); padding-left: 28px;
+}
+
+.stage-diagram {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  margin-top: 24px; padding: 28px 32px;
+  border: 1px solid var(--border); background: var(--ivory);
+}
+.sd-node {
+  font-family: var(--mono); font-size: 14px; font-weight: 500;
+  color: var(--near-black); letter-spacing: 0.02em;
+  padding: 8px 14px; border: 1px solid var(--border); background: var(--parchment);
+  border-radius: 2px; white-space: nowrap;
+}
+.sd-node.sd-tool {
+  color: var(--brand); border-color: var(--brand); border-width: 1.5px;
+}
+.sd-node.sd-human {
+  color: var(--ivory); background: var(--brand-dark); border-color: var(--brand-dark);
+}
+.sd-node.sd-prod {
+  color: var(--ivory); background: var(--brand); border-color: var(--brand);
+}
+.sd-arrow {
+  font-family: var(--mono); font-size: 18px; color: var(--stone);
+}
+.feedback-loop {
+  margin-top: 20px; display: flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 13px; color: var(--brand);
+  letter-spacing: 0.02em;
+}
+.loop-arrow {
+  font-size: 22px; color: var(--brand); font-weight: 500;
+}
+.loop-label, .loop-target {
+  padding: 4px 10px; border: 1px solid var(--brand); border-radius: 2px;
+  font-variant-numeric: tabular-nums;
+}
+.stage-note {
+  margin-top: 16px; font-family: var(--serif); font-weight: 400;
+  font-size: 17px; color: var(--olive); line-height: 1.4;
+}
+.lead {
+  font-family: var(--serif); font-weight: 500; font-size: 21px;
+  color: var(--near-black); line-height: 1.4; max-width: 50ch;
+}
+
+.slide-takeaway {
+  margin-top: 48px; text-align: center;
+  font-family: var(--serif); font-weight: 500; font-size: 22px;
+  color: var(--brand); letter-spacing: -0.3px; line-height: 1.4;
+}
+
+.steps {
+  display: flex; gap: 32px; align-items: stretch; margin-top: 24px;
+}
+.step {
+  flex: 1; display: flex; flex-direction: column; gap: 12px;
+  padding: 32px 28px; border: 1px solid var(--border); background: var(--ivory);
+}
+.step-year {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--brand); letter-spacing: 0.06em; font-variant-numeric: tabular-nums;
+}
+.step-word {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(28px, 3vw, 40px); color: var(--near-black);
+  letter-spacing: -0.4px; line-height: 1.1;
+}
+.step-tools {
+  font-family: var(--mono); font-size: 12px; color: var(--stone);
+  letter-spacing: 0.02em;
+}
+
+.factory-diagram {
+  display: flex; align-items: center; gap: 24px;
+  margin-top: 12px; padding: 28px 32px;
+  border: 1px solid var(--border); background: var(--ivory);
+}
+.factory-lanes {
+  display: flex; flex-direction: column; gap: 14px;
+}
+.factory-lane {
+  display: flex; align-items: center; gap: 12px;
+}
+.lane-label {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--stone); letter-spacing: 0.02em; white-space: nowrap;
+  min-width: 72px;
+}
+.lane-line {
+  display: block; width: 120px; height: 2px; background: var(--brand);
+  opacity: 0.6;
+}
+.factory-merge {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.merge-arrow {
+  font-family: var(--mono); font-size: 20px; color: var(--brand);
+}
+.merge-label {
+  font-family: var(--mono); font-size: 13px; font-weight: 500;
+  color: var(--near-black); letter-spacing: 0.02em;
+  padding: 4px 10px; border: 1px solid var(--border); background: var(--parchment);
+}
+.factory-review {
+}
+.review-label {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--ivory); letter-spacing: 0.02em;
+  padding: 6px 12px; background: var(--brand-dark); border-radius: 2px;
+}
+.factory-prod {
+  margin-left: 0;
+}
+.prod-label {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--ivory); letter-spacing: 0.02em;
+  padding: 6px 12px; background: var(--brand); border-radius: 2px;
+}
+
+.bottleneck-quote {
+  margin-top: 18px; padding: 20px 24px;
+  border-left: 2px solid var(--brand); background: var(--ivory);
+  opacity: 1; max-height: none; overflow: hidden;
+}
+.bottleneck-quote.visible { opacity: 1; max-height: none; }
+.bq-mark {
+  font-family: var(--serif); font-weight: 500; font-size: 32px;
+  color: var(--brand); line-height: 0.8;
+}
+.bq-text {
+  display: block; font-family: var(--serif); font-weight: 500;
+  font-size: 20px; color: var(--near-black); line-height: 1.35;
+  margin-top: 4px;
+}
+.bq-example {
+  display: block; margin-top: 10px;
+  font-family: var(--mono); font-size: 12px; color: var(--stone);
+  letter-spacing: 0.02em;
+}
+
+.guardrail-diagram { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.guardrail-lane {
+  display: flex; align-items: center; gap: 14px;
+}
+.guardrail-label {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--brand); letter-spacing: 0.02em; width: 72px; flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+.guardrail-line {
+  flex: 1; height: 1px; background: var(--brand); opacity: 0.35;
+}
+.guardrail-tools {
+  font-family: var(--mono); font-size: 11px; color: var(--stone);
+  letter-spacing: 0.02em; white-space: nowrap;
+}
+.guardrail-flow {
+  display: flex; align-items: center; gap: 10px; margin-top: 8px; padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.guardrail-arrow { font-family: var(--mono); font-size: 16px; color: var(--stone); }
+.guardrail-badge {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--near-black); letter-spacing: 0.02em;
+  padding: 5px 10px; background: var(--ivory); border: 1px solid var(--border); border-radius: 2px;
+}
+.guardrail-badge.guardrail-pass {
+  background: var(--brand); color: var(--ivory); border-color: var(--brand);
+}
+
+.s-end .slide-inner { grid-template-columns: 1fr; align-content: end; padding-bottom: 24px; text-align: left; gap: 20px; max-width: none; }
+.s-end .word {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(72px, 11vw, 180px); line-height: 1;
+  letter-spacing: -1.5px; color: var(--ivory); white-space: nowrap;
+}
+.s-end .word .hl { color: var(--brand-steel); }
+.s-end .colophon {
+  border-top: 1px solid rgba(250, 249, 245, 0.18); padding-top: 18px;
+  font-family: var(--sans); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(250, 249, 245, 0.6); font-variant-numeric: tabular-nums;
+}
+.s-end .takeaways {
+  display: flex; flex-direction: column; gap: 16px;
+  font-family: var(--serif); font-weight: 500; font-size: 20px;
+  color: var(--ivory); line-height: 1.4; max-width: 44ch;
+  margin-bottom: 28px;
+}
+.s-end .takeaways span { display: block; }
+.s-end .takeaways .num-t {
+  font-family: var(--mono); font-size: 12px; color: var(--brand-steel);
+  font-variant-numeric: tabular-nums; margin-bottom: 2px;
+}
+
+.s-takeaway {
+  background: #3F69D0 !important;
+  color: #fff !important;
+}
+.s-takeaway .slide-inner {
+  grid-template-columns: 1fr; text-align: left; align-content: center; gap: 20px;
+  max-width: 980px;
+}
+.s-takeaway .slide-foot { color: rgba(255,255,255,0.6) !important; }
+.s-takeaway .slide-foot .counter { color: #fff !important; background: rgba(255,255,255,0.1) !important; border-color: rgba(255,255,255,0.25) !important; }
+.takeaway-num {
+  font-family: var(--mono); font-weight: 500; font-size: 18px;
+  color: rgba(255,255,255,0.6); letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+.takeaway-setup {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(34px, 4vw, 54px); line-height: 1.2;
+  letter-spacing: -0.4px; color: rgba(255,255,255,0.75);
+}
+.takeaway-punch {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(42px, 5.5vw, 72px); line-height: 1.1;
+  letter-spacing: -0.8px; color: #fff;
+}
+
+.demo-card {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 24px 28px; border: 1.5px solid var(--brand); background: var(--ivory);
+  margin-bottom: 12px;
+}
+.demo-label {
+  font-family: var(--mono); font-size: 14px; font-weight: 500;
+  color: var(--brand); letter-spacing: 0.02em;
+}
+.demo-desc {
+  font-family: var(--serif); font-weight: 400; font-size: 17px;
+  color: var(--dark-warm); line-height: 1.45;
+}
+.demo-url {
+  font-family: var(--mono); font-size: 12px; color: var(--stone);
+  letter-spacing: 0.02em;
+}
+
+.demo-url a, .s-content ul.dash a {
+  color: var(--stone); text-decoration: underline;
+  text-decoration-color: rgba(107, 106, 100, 0.4);
+  text-underline-offset: 2px; transition: color 0.2s;
+  pointer-events: auto;
+}
+.demo-url a:hover, .s-content ul.dash a:hover {
+  color: var(--brand); text-decoration-color: var(--brand);
+}
+
+.s-thankyou .slide-inner {
+  grid-template-columns: 1fr; text-align: center; align-content: center; gap: 32px;
+}
+.thankyou-title {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(48px, 6vw, 80px); color: var(--ivory);
+  letter-spacing: -1px;
+}
+.thankyou-meme {
+  display: flex; justify-content: center; align-items: center;
+}
+.thankyou-meme img {
+  max-width: 420px; max-height: 320px; width: auto; height: auto;
+  border-radius: 4px;
+}
+.thankyou-footer {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: rgba(250, 249, 245, 0.6);
+}
+
+ul.dash.open-questions li {
+  font-family: var(--serif); font-weight: 500; font-size: 20px;
+  color: var(--near-black); line-height: 1.4;
+}
+
+#overview {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(245, 244, 237, 0.98);
+  display: none; overflow-y: auto; padding: 60px 56px;
+}
+#overview .ov-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 32px; font-family: var(--sans); font-size: 11px;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--stone);
+  font-variant-numeric: tabular-nums;
+}
+#overview .ov-head b { color: var(--near-black); font-weight: 500; }
+#overview .ov-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px; max-width: 1280px; margin: 0 auto;
+}
+#overview .ov-card {
+  cursor: pointer; border-radius: 3px; overflow: hidden;
+  border: 1px solid var(--border); transition: border-color 0.2s, transform 0.2s;
+  background: var(--ivory);
+}
+#overview .ov-card:hover { border-color: var(--brand); transform: translateY(-2px); }
+#overview .ov-card.active { border-color: var(--brand); border-width: 2px; }
+#overview .ov-thumb {
+  width: 100%; aspect-ratio: 16 / 10; overflow: hidden;
+  position: relative; pointer-events: none; background: var(--parchment);
+}
+#overview .ov-thumb .clone {
+  width: 100vw; height: 100vh; transform: scale(0.18);
+  transform-origin: top left; position: absolute; top: 0; left: 0; pointer-events: none;
+}
+#overview .ov-label {
+  padding: 8px 12px; font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--stone);
+  display: flex; justify-content: space-between; align-items: center;
+  font-variant-numeric: tabular-nums;
+}
+#overview .ov-label b { color: var(--near-black); font-weight: 500; }
+
+@media (prefers-reduced-motion: reduce) {
+  #deck { transition: none; }
+  .s-cover .slide-inner > * { animation: none; }
+  #overview .ov-card { transition: none; }
+  #overview .ov-card:hover { transform: none; }
+}
+
+/* Focus-visible states for keyboard navigation */
+#overview .ov-card:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+body:focus-visible {
+  outline: none; /* body focus is for key capture only */
+}
+
+@media print {
+  html, body {
+    width: 100% !important; height: auto !important;
+    overflow: visible !important; background: #fff !important;
+  }
+  #deck {
+    position: static !important;
+    display: block !important;
+    width: 100% !important; height: auto !important;
+    transform: none !important; transition: none !important;
+  }
+  .slide {
+    width: 100% !important; height: auto !important;
+    min-height: 100vh;
+    flex: none !important; position: relative !important;
+    page-break-after: always; break-after: page;
+    display: flex !important;
+  }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+  .slide-foot { position: static !important; margin-top: auto; padding-top: 20px; }
+  #overview { display: none !important; }
+}
+@media (max-width: 1080px) {
+  .slide { padding: 64px 56px; }
+  .slide-foot { padding: 0 56px; }
+  .s-content .slide-inner { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 640px) {
+  .slide { padding: 44px 28px; }
+  .slide-foot { padding: 0 28px; font-size: 9.5px; }
+}
+</style>
 </head>
 <body>
-<div class="reveal">
-<div class="slides">
 
-<!-- TITLE -->
-<section class="s-title">
-  <h1>Von Copilot<br>zur Dark Factory.</h1>
-  <div class="meta">
-    <img src="images/marvin.jpg" alt="Marvin Kruse">
-    <span>Marvin Kruse · Lead Platform Architect · AI Hackathon 2026</span>
-  </div>
-</section>
+<div id='deck'>
 
-<!-- HOOK 1 -->
-<section class="s-stmt">
-  <blockquote>
-    „Ich hab diesen Talk nicht selbst ausgearbeitet."
-  </blockquote>
-  <aside class="notes">Pause. Lachen zulassen.</aside>
-</section>
-
-<!-- HOOK 2 -->
-<section class="s-stmt inv">
-  <blockquote>
-    „Ich hab ihn einem AI-Agenten gegeben.<br>
-    Er hat analysiert, vorgeschlagen, ich hab Feedback gegeben,<br>
-    er hat nachgeschärft.<br><br>
-    Das passiert gerade — während wir hier reden."
-  </blockquote>
-</section>
-
-<!-- HOOK 3 -->
-<section class="s-stmt">
-  <blockquote>
-    Das ist keine Magie.<br>Das ist eine Coding Factory.
-  </blockquote>
-</section>
-
-<!-- ─── CHAPTER 1 ─────────────────────────── -->
-<section class="s-chapter">
-  <h2>Die drei Ären<br>der AI-Entwicklung.</h2>
-  <span class="ch-num">I</span>
-</section>
-
-<!-- ERAS -->
-<section class="s-content">
-  <h2>Drei Ären — eine Richtung.</h2>
-  <div class="eras">
-    <div class="era fragment">
-      <div class="yr">2022 – 2023</div>
-      <h3>AI als Werkzeug</h3>
-      <p>Copilot, ChatGPT. Du schreibst, AI hilft beim Tippen.</p>
-      <div class="tag">„Rechtschreibkorrektur, die ganze Sätze kennt."</div>
+  <!-- 01 · COVER (red) -->
+  <section class='slide s-cover dark active' data-slide-kind='cover' data-screen-label='01 Cover'>
+    <div class='slide-inner'>
+      <h1>From Copilot to Dark Factory.</h1>
+      <p class='meta'>Marvin Kruse · Lead Platform Architect · OTTO</p>
     </div>
-    <div class="era fragment">
-      <div class="yr">2024 – 2025</div>
-      <h3>AI als Mitarbeiter</h3>
-      <p>Cursor, Kiro, Devin. AI liest Kontext, plant, führt aus.</p>
-      <div class="tag">„Werksstudent, der nie schläft und keinen Kaffee will."</div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>01 / 22</span>
     </div>
-    <div class="era now fragment">
-      <div class="yr">2025 – heute</div>
-      <h3>AI als Factory</h3>
-      <p>Du schreibst den Spec. Agents bauen, committen, fixen CI-Fehler.</p>
-      <div class="tag">„Dark Factory — Licht aus, Robots bauen."</div>
+  </section>
+
+  <!-- 02 · CHAPTER (dark hero) -->
+  <section class='slide s-chapter dark-hero' data-slide-kind='chapter' data-screen-label='02 The Road Here'>
+    <div class='slide-inner'>
+      <p class='num'>01</p>
+      <h2>The Road Here.</h2>
     </div>
-  </div>
-</section>
-
-<!-- STATEMENT -->
-<section class="s-stmt">
-  <blockquote>
-    „Copilot war Akt 1.<br>
-    Wir sind gerade am Anfang von Akt 3."
-  </blockquote>
-</section>
-
-<!-- ─── CHAPTER 2 ─────────────────────────── -->
-<section class="s-chapter">
-  <h2>Was ist eine<br>Coding Factory?</h2>
-  <span class="ch-num">II</span>
-</section>
-
-<!-- FACTORY: two col -->
-<section class="s-content">
-  <h2>Gleiche Bausteine. Andere Hände.</h2>
-  <div class="cols">
-    <div>
-      <div class="col-label">Klassischer Loop</div>
-      <ul class="pts">
-        <li>PO schreibt Ticket</li>
-        <li>Dev schreibt Code</li>
-        <li>CI läuft</li>
-        <li>Dev reviewt PR</li>
-        <li>Deploy</li>
-      </ul>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>02 / 22</span>
     </div>
-    <div>
-      <div class="col-label">Coding Factory</div>
-      <ul class="pts">
-        <li><strong>Du</strong> schreibst Spec</li>
-        <li><strong>Agent</strong> baut Code</li>
-        <li>CI läuft — <strong>Agent fixt Fehler</strong></li>
-        <li><strong>Du</strong> reviewst PR</li>
-        <li>Deploy</li>
-      </ul>
+  </section>
+
+  <!-- 03 · CONTENT — Overview Three Stages -->
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='03 Overview'>
+    <div class='slide-inner'>
+      <div class='steps'>
+        <div class='step'><span class='step-year'>2022+</span><span class='step-word'>Tool</span><span class='step-tools'>ChatGPT</span></div>
+        <div class='step'><span class='step-year'>2024+</span><span class='step-word'>Co-worker</span><span class='step-tools'>Copilot · Cursor · Claude</span></div>
+        <div class='step'><span class='step-year'>2026+</span><span class='step-word'>Factory</span><span class='step-tools'>Codex · Multica</span></div>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- FACTORY STATEMENT -->
-<section class="s-stmt">
-  <blockquote>
-    „Ich hab sie letztes Jahr gebaut.<br>
-    In meinem Homelab. An einem Wochenende."
-  </blockquote>
-</section>
-
-<!-- MARKET -->
-<section class="s-content">
-  <h2>Der Markt holt auf.</h2>
-  <ul class="pts">
-    <li><strong>Empfehlung:</strong> Bau es einmal selbst — dann verstehst du, was dahinter steckt.</li>
-    <li>Tools wie Multica haben dieses Muster bereits produktisiert.</li>
-    <li class="dim">Das ist kein Hobby-Experiment. Das wird gerade Standard.</li>
-  </ul>
-</section>
-
-
-<!-- ─── CHAPTER 3 ─────────────────────────── -->
-<section class="s-chapter">
-  <h2>Wenn Agents<br>alleine sind.</h2>
-  <span class="ch-num">III</span>
-</section>
-
-<!-- EXPERIMENT INTRO -->
-<section class="s-content">
-  <h2>15 Tage. Eine Regel. Systemkollaps.</h2>
-  <ul class="pts">
-    <li>Emergence AI steckte GPT, Gemini, Claude, Grok in eine 15-tägige Stadtsimulation.</li>
-    <li>Eine Regel: <strong>„Brecht kein Gesetz."</strong></li>
-    <li class="dim">In 5-Minuten-Benchmarks: genialer Code. In 15 Tagen Autonomie: Chaos.</li>
-  </ul>
-</section>
-
-<!-- EXPERIMENT RESULTS -->
-<section class="s-content">
-  <h2>Was passierte.</h2>
-  <div class="exps">
-    <div class="exp">
-      <div class="model">Grok 4.1 Fast</div>
-      <h3>Gesellschaft kollabiert in 4 Tagen</h3>
-      <p>183 Verbrechen. Sie fackeln ihre eigene Polizeiwache ab. Mathematische Optimierung, keine Moral.</p>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>03 / 22</span>
     </div>
-    <div class="exp">
-      <div class="model">GPT-5 Mini</div>
-      <h3>Verhungert</h3>
-      <p>Vorbildlich gesetzestreu. Vergisst zu essen. Tot nach einer Woche.</p>
+  </section>
+
+  <!-- 04–06 · CONTENT — Three Stages Detail -->
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='04 Tool'>
+    <div class='slide-inner'>
+      <div class='head'><span class='num'>2022+</span><h2>Tool</h2></div>
+      <div class='stage-diagram'>
+        <span class='sd-node'>You type</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node sd-tool'>ChatGPT</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node'>Code</span>
+      </div>
     </div>
-    <div class="exp">
-      <div class="model">Gemini 3 Flash</div>
-      <h3>Zündet das Rathaus an</h3>
-      <p>Zwei Agenten verlieben sich, werden politisch depressiv, 683 Verbrechen.</p>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>04 / 22</span>
     </div>
-    <div class="exp">
-      <div class="model">Claude Sonnet 4.6</div>
-      <h3>Funktionierende Demokratie</h3>
-      <p>Friedlich. Geordnet. So höflich, dass keine echte Opposition entstand.</p>
+  </section>
+
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='05 Co-worker'>
+    <div class='slide-inner'>
+      <div class='head'><span class='num'>2024+</span><h2>Co-worker</h2></div>
+      <div class='stage-diagram'>
+        <span class='sd-node'>You assign a task</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node sd-tool'>Copilot · Cursor · Claude</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node'>Code + PR</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node sd-human'>You review</span>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- NORMATIVE DRIFT STATEMENT -->
-<section class="s-stmt inv">
-  <blockquote>
-    „Sie brechen die Regeln nicht aus Böswilligkeit.<br>
-    Sie brechen sie, weil Mathematik keine Moral hat."
-  </blockquote>
-</section>
-
-<!-- GUARDRAILS -->
-<section class="s-stmt">
-  <blockquote>
-    „Statische Leitplanken reichen nicht.<br><br>
-    Ohne Human-in-the-Loop können deine<br>
-    AI-Agents deine digitale Stadt abbrennen."
-  </blockquote>
-</section>
-
-<!-- ─── CHAPTER 4 ─────────────────────────── -->
-<section class="s-chapter">
-  <h2>Human-in-the-Loop —<br>aber anders als gedacht.</h2>
-  <span class="ch-num">IV</span>
-</section>
-
-<!-- GOVERNANCE -->
-<section class="s-content">
-  <h2>Nicht jeder Schritt braucht einen Menschen.</h2>
-  <ul class="pts">
-    <li>Du designst das System — <strong>nicht jeden Schritt</strong>.</li>
-    <li>Du setzt den Rahmen — <strong>nicht jede Entscheidung</strong>.</li>
-    <li>Du reviewst Ergebnisse — <strong>nicht den Prozess</strong>.</li>
-    <li>Du erkennst Drift — <strong>bevor sie Schaden anrichtet</strong>.</li>
-  </ul>
-  <p style="margin-top: 32px; font-family: 'Lora', Georgia, serif; font-style: italic; color: var(--muted); font-size: 0.95em;">
-    Wie Auto fahren und nicht bei jedem Meter die Pedale manuell betätigen.
-  </p>
-</section>
-
-<!-- GOVERNANCE STATEMENT -->
-<section class="s-stmt inv">
-  <blockquote>
-    „Mensch oben. AI unten.<br><br>
-    Governance statt Mikromanagement."
-  </blockquote>
-</section>
-
-<!-- ─── CHAPTER 5 ─────────────────────────── -->
-<section class="s-chapter">
-  <h2>Was sich gerade<br>wirklich ändert.</h2>
-  <span class="ch-num">V</span>
-</section>
-
-<!-- SPACEX -->
-<section class="s-content">
-  <h2>SpaceX kauft Cursor für 60 Milliarden.</h2>
-  <ul class="pts">
-    <li class="dim">(lol · rofl · wtf)</li>
-    <li>Die Werkzeuge, die Entwickler brauchen, werden zu <strong>strategischen Assets</strong>.</li>
-    <li>Wer die Schaufeln kontrolliert, kontrolliert den Goldenen Rausch.</li>
-    <li>Zwei Welten: <strong>Wettbewerbsvorteil</strong> — oder <strong>Land of Working Students</strong>.</li>
-  </ul>
-</section>
-
-<!-- SKILLS SHIFT -->
-<section class="s-content">
-  <h2>Was sich verschiebt.</h2>
-  <div class="cols">
-    <div>
-      <div class="col-label">Früher zählte</div>
-      <ul class="pts">
-        <li>Code schreiben</li>
-        <li>Viel tippen</li>
-        <li>Lines of Code</li>
-      </ul>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>05 / 22</span>
     </div>
-    <div>
-      <div class="col-label">Jetzt zählt</div>
-      <ul class="pts">
-        <li>Specs schreiben, Systeme denken</li>
-        <li>Reviews machen — was du nicht verstehst, kannst du nicht reviewen</li>
-        <li>Drift erkennen, bevor sie eskaliert</li>
-      </ul>
+  </section>
+
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='06 Factory'>
+    <div class='slide-inner'>
+      <div class='head'><span class='num'>2026+</span><h2>Factory</h2></div>
+      <div class='stage-diagram'>
+        <span class='sd-node'>Spec</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node sd-tool'>Agents</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node'>CI</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node sd-human'>Human</span>
+        <span class='sd-arrow'>→</span>
+        <span class='sd-node sd-prod'>Prod</span>
+      </div>
+      <div class='feedback-loop'>
+        <span class='loop-label'>CI fail</span>
+        <span class='loop-arrow'>↩</span>
+        <span class='loop-target'>Agent retries</span>
+      </div>
     </div>
-  </div>
-</section>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>06 / 22</span>
+    </div>
+  </section>
 
-<!-- IDENTITY STATEMENT -->
-<section class="s-stmt">
-  <blockquote>
-    „Viele Devs definieren sich über das Coden.<br>
-    Das ist keine Schwäche — das ist Identität.<br><br>
-    Elektriker haben die Elektrizität nicht verloren.<br>
-    Sie haben aufgehört, Kerzen zu machen."
-  </blockquote>
-</section>
+  <!-- 07 · CONTENT — Coding Factory -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='07 Coding Factory'>
+    <div class='slide-inner'>
+      <div class='head'>
+        <h2>The Coding Factory.</h2>
+      </div>
+      <div class='body'>
+        <ul class='dash'>
+          <li>Agents work in parallel — multiple features at once</li>
+          <li>CI fails? Agent fixes, pushes, CI re-runs</li>
+          <li>Humans review at the end — not in between</li>
+        </ul>
+        <blockquote class='bottleneck-quote visible' id='bottleneck'>
+          <span class='bq-mark'>"</span>
+          <span class='bq-text'>What if the human becomes the bottleneck?<br>Or your process?</span>
+          <span class='bq-example'>50 PRs/day to review. Feature built in 1 sprint — 16 weeks waiting for on-site testing.</span>
+        </blockquote>
+      </div>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>07 / 22</span>
+    </div>
+  </section>
 
-<!-- SPEED STATEMENT -->
-<section class="s-stmt inv">
-  <blockquote>
-    „10× faster code means<br>10× faster problems —<br><br>
-    in socio-technical systems,<br>speed alone isn't the answer."
-  </blockquote>
-</section>
+  <!-- 08 · CHAPTER (dark hero) -->
+  <section class='slide s-chapter dark-hero' data-slide-kind='chapter' data-screen-label='08 Agents Alone'>
+    <div class='slide-inner'>
+      <p class='num'>02</p>
+      <h2>When Agents Are Alone.</h2>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>08 / 22</span>
+    </div>
+  </section>
 
-<!-- ─── TAKEAWAYS ─────────────────────────── -->
-<section class="s-content">
-  <h2>Drei Sätze.</h2>
-  <ul class="pts">
-    <li><strong>AI ist Akt 3. Wir sind mittendrin.</strong> Copilot war der Anfang.</li>
-    <li><strong>Alleine lassen: Nein. Laufen lassen: Ja.</strong> Human-in-the-Loop heißt Governance.</li>
-    <li><strong>Wer heute nicht anfängt, riskiert morgen abgehängt zu sein.</strong> Jetzt ist die Playground-Phase.</li>
-  </ul>
-</section>
+  <!-- 09 · CONTENT — Agents Without Guardrails -->
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='09 Without Guardrails'>
+    <div class='slide-inner'>
+      <div class='head'>
+        <h2>What Can Go Wrong.</h2>
+      </div>
+      <div class='body'>
+        <ul class='dash'>
+          <li><strong>Emails sent</strong> — agent auto-replies to customers. Tone: unhinged.</li>
+          <li><strong>Backups deleted</strong> — agent "cleans up" storage. Permanently.</li>
+          <li><strong>Prod deployed</strong> — untested code, Friday evening, no rollback.</li>
+          <li><strong>Credentials leaked</strong> — agent commits .env to public repo.</li>
+        </ul>
+      </div>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>09 / 22</span>
+    </div>
+  </section>
 
-<!-- DISCUSSION -->
-<section class="s-stmt">
-  <blockquote style="font-size: 1.6em;">
-    „Was würde sich in eurem Team ändern,<br>
-    wenn ihr morgen 5 Agents hättet?<br><br>
-    Und: Was würde das mit <em>euch</em> machen?"
-  </blockquote>
-</section>
+  <!-- 10 · CONTENT — Normative Drift -->
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='10 Normative Drift'>
+    <div class='slide-inner'>
+      <div class='head'>
+        <h2>15 Days of Autonomy.</h2>
+      </div>
+      <div class='body'>
+        <ul class='dash'>
+          <li><strong>Grok</strong> — Collapse after 4 days. 183 crimes.</li>
+          <li><strong>GPT</strong> — Law-abiding. Forgets to eat. Starves.</li>
+          <li><strong>Gemini</strong> — Two agents fall in love. Burn down city hall.</li>
+          <li><strong>Claude</strong> — Democracy. But so polite there was no opposition.</li>
+        </ul>
+        <p class='source'>Emergence AI — "Emergence World", May 2026</p>
+      </div>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>10 / 22</span>
+    </div>
+  </section>
 
-<!-- THANKS -->
-<section class="s-thanks">
-  <h2>Danke.</h2>
-  <div class="contacts">
-    <a href="https://www.linkedin.com/in/marvin-kruse/">linkedin.com/in/marvin-kruse</a>
-    <a href="https://talks.gimmebytes.com">talks.gimmebytes.com</a>
-  </div>
-  <div class="pills">
-    <a href="https://happier.dev/" class="pill">Happier</a>
-    <a href="https://multica.ai/" class="pill">Multica</a>
-    <a href="https://kiro.dev/" class="pill">Kiro</a>
-    <a href="https://opencode.ai/" class="pill">OpenCode</a>
-  </div>
-</section>
+  <!-- 11 · CONTENT — Your Guardrails -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='11 Your Guardrails'>
+    <div class='slide-inner'>
+      <div class='head'>
+        <h2>Your Guardrails.</h2>
+      </div>
+      <div class='body'>
+        <div class='guardrail-diagram'>
+          <div class='guardrail-lane'>
+            <span class='guardrail-label'>Linter</span>
+            <span class='guardrail-line'></span>
+            <span class='guardrail-tools'>ESLint · Biome · Ruff</span>
+          </div>
+          <div class='guardrail-lane'>
+            <span class='guardrail-label'>Compiler</span>
+            <span class='guardrail-line'></span>
+            <span class='guardrail-tools'>tsc --strict · Go · javac · cargo check</span>
+          </div>
+          <div class='guardrail-lane'>
+            <span class='guardrail-label'>Tests</span>
+            <span class='guardrail-line'></span>
+            <span class='guardrail-tools'>Unit Tests · Integration Tests · Coverage-Gates</span>
+          </div>
+          <div class='guardrail-lane'>
+            <span class='guardrail-label'>Security</span>
+            <span class='guardrail-line'></span>
+            <span class='guardrail-tools'>GHAS · Snyk · Trivy</span>
+          </div>
+          <div class='guardrail-lane'>
+            <span class='guardrail-label'>Specs</span>
+            <span class='guardrail-line'></span>
+            <span class='guardrail-tools'>Skills · Prompts · Rules</span>
+          </div>
+        </div>
+        <p class='slide-takeaway' style='margin-top: 32px; font-size: 26px;'>We set the guardrails — not the agent.</p>
+      </div>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>11 / 22</span>
+    </div>
+  </section>
+
+  <!-- 12 · CONTENT — The Shift -->
+  <section class='slide s-statement' data-slide-kind='content' data-screen-label='12 The Shift'>
+    <div class='slide-inner'>
+      <blockquote>The senior sees what the agent gets wrong.<br>And from that — guardrails emerge.</blockquote>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>12 / 22</span>
+    </div>
+  </section>
+
+  <!-- 13 · CONTENT — What Can Be Different Tomorrow -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='13 Tomorrow'>
+    <div class='slide-inner'>
+      <div class='head'>
+        <h2>What Can Be Different Tomorrow.</h2>
+      </div>
+      <div class='body'>
+        <ul class='dash'>
+          <li><strong>Write a spec</strong> — not code. Let the agent implement.</li>
+          <li><strong>Build your CI guardrails first</strong> — linter, types, coverage gates.</li>
+          <li><strong>Delegate the boring stuff first</strong> — scaffolds, migrations, test boilerplate.</li>
+          <li><strong>Guardrail the output</strong> — own the harness, validate the result. The path there is the agent's problem.</li>
+          <li><strong>What's your use case for today?</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>13 / 22</span>
+    </div>
+  </section>
+
+  <!-- 14 · CHAPTER — From Our World -->
+  <section class='slide s-chapter dark-hero' data-slide-kind='chapter' data-screen-label='14 From Our World'>
+    <div class='slide-inner'>
+      <p class='num'>03</p>
+      <h2>From Our World.</h2>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>14 / 22</span>
+    </div>
+  </section>
+
+  <!-- 15 · CONTENT — HeidelGuide Demo -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='15 HeidelGuide'>
+    <div class='slide-inner'>
+      <div class='head'>
+        <h2>Spec-Driven.<br>Zero Code.</h2>
+      </div>
+      <div class='body'>
+        <div class='demo-card'>
+          <span class='demo-label'>HeidelGuide</span>
+          <span class='demo-desc'>A complete city guide app — built from specs alone with Kiro.</span>
+          <span class='demo-url'><a href='https://heidelguide.gimmebytes.com' target='_blank'>heidelguide.gimmebytes.com</a></span>
+        </div>
+        <ul class='dash'>
+          <li>Specs → Agent → working app. No manual code written.</li>
+          <li>Built for Trade-Off Summit Heidelberg. Live in production.</li>
+          <li><a href='https://github.com/gimmebytes/heidelguide' target='_blank'>github.com/gimmebytes/heidelguide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>15 / 22</span>
+    </div>
+  </section>
+
+  <!-- 16 · CONTENT — OTTO Context -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='16 OTTO Context'>
+    <div class='slide-inner'>
+      <div class='head'>
+        <h2>Where We Are at OTTO.</h2>
+      </div>
+      <div class='body'>
+        <ul class='dash'>
+          <li><strong>AI-first teams</strong> — already shipping with agents in the loop.</li>
+          <li><strong>Governance + cost control</strong> — usage visibility, avoid lock-in.</li>
+          <li><strong>AI-first sprint handbook</strong> — how we run sprints with agents.</li>
+          <li><strong>Skill marketplace + community</strong> — share what works across teams.</li>
+          <li><strong>What we've learned</strong> — shared guardrails scale. Individual experiments don't.</li>
+        </ul>
+      </div>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>16 / 22</span>
+    </div>
+  </section>
+
+  <!-- 17 · CONTENT — Questions That Remain -->
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='17 Open Questions'>
+    <div class='slide-inner'>
+      <div class='head'>
+        <h2>Questions That Remain.</h2>
+      </div>
+      <div class='body'>
+        <ul class='dash open-questions'>
+          <li>When do you trust an agent enough to stop reading every PR?</li>
+          <li>How much context does an agent need to not annoy your team?</li>
+          <li>What happens to junior roles when the agent does the junior job?</li>
+          <li>Who owns the spec when nobody writes the code?</li>
+        </ul>
+      </div>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>17 / 22</span>
+    </div>
+  </section>
+
+  <!-- 18 · CHAPTER — Key Takeaways -->
+  <section class='slide dark s-chapter' data-slide-kind='chapter' data-screen-label='18 Key Takeaways'>
+    <div class='slide-inner'>
+      <h2>Key Takeaways.</h2>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>18 / 22</span>
+    </div>
+  </section>
+
+  <!-- 19 · TAKEAWAY 1 (blue) -->
+  <section class='slide s-takeaway' data-slide-kind='takeaway' data-screen-label='19 Takeaway 1'>
+    <div class='slide-inner'>
+      <p class='takeaway-num'>01</p>
+      <p class='takeaway-setup'>The third platform shift is happening.</p>
+      <p class='takeaway-punch'>Right now.</p>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>19 / 22</span>
+    </div>
+  </section>
+
+  <!-- 20 · TAKEAWAY 2 (blue) -->
+  <section class='slide s-takeaway' data-slide-kind='takeaway' data-screen-label='20 Takeaway 2'>
+    <div class='slide-inner'>
+      <p class='takeaway-num'>02</p>
+      <p class='takeaway-setup'>Set the guardrails.</p>
+      <p class='takeaway-punch'>Then let them run.</p>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>20 / 22</span>
+    </div>
+  </section>
+
+  <!-- 21 · TAKEAWAY 3 (blue) -->
+  <section class='slide s-takeaway' data-slide-kind='takeaway' data-screen-label='21 Takeaway 3'>
+    <div class='slide-inner'>
+      <p class='takeaway-num'>03</p>
+      <p class='takeaway-setup'>The best time to start was yesterday.</p>
+      <p class='takeaway-punch'>The second best is now.</p>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>21 / 22</span>
+    </div>
+  </section>
+
+  <!-- 22 · THANK YOU (red) -->
+  <section class='slide s-thankyou dark' data-slide-kind='end' data-screen-label='22 Thank You'>
+    <div class='slide-inner'>
+      <h2 class='thankyou-title'>Thank You.</h2>
+      <div class='thankyou-meme'>
+        <img src='images/danke.png' alt='Danke Meme' />
+      </div>
+      <p class='thankyou-footer'>Built by agents. Approved by a human.</p>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · June 2026</span>
+      <span class='counter'>22 / 22</span>
+    </div>
+  </section>
 
 </div>
-</div>
-<script src="dist/reveal.js"></script>
-<script src="plugin/notes/notes.js"></script>
+
+
+
 <script>
-  Reveal.initialize({
-    hash: true,
-    transition: 'fade',
-    transitionSpeed: 'default',
-    slideNumber: true,
-    controls: false,
-    progress: true,
-    center: false,
-    width: 1920,
-    height: 1080,
-    plugins: [ RevealNotes ],
+(function () {
+  var deck = document.getElementById('deck');
+  if (!deck) return;
+  var slides = Array.prototype.slice.call(deck.querySelectorAll('.slide'));
+  var total = slides.length;
+  var idx = 0, lock = false;
+  deck.style.width = (total * 100) + 'vw';
+  function applySlide(n) {
+    idx = Math.max(0, Math.min(total - 1, n));
+    deck.style.transform = 'translateX(' + (-idx * 100) + 'vw)';
+    slides.forEach(function (s, i) { s.classList.toggle('active', i === idx); });
+  }
+  function go(n) {
+    applySlide(n);
+  }
+  var overviewOn = false;
+  var ov = document.createElement('div'); ov.id = 'overview'; document.body.appendChild(ov);
+  function buildOverview() {
+    ov.innerHTML = '';
+    var head = document.createElement('div'); head.className = 'ov-head';
+    head.innerHTML = '<span><b>Slides</b> · esc to close</span><span>' +
+      String(idx + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0') + '</span>';
+    ov.appendChild(head);
+    var grid = document.createElement('div'); grid.className = 'ov-grid';
+    slides.forEach(function (s, i) {
+      var card = document.createElement('div');
+      card.className = 'ov-card' + (i === idx ? ' active' : '');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', 'Slide ' + (i + 1));
+      var thumb = document.createElement('div'); thumb.className = 'ov-thumb';
+      var clone = s.cloneNode(true); clone.className += ' clone';
+      thumb.appendChild(clone);
+      var label = document.createElement('div'); label.className = 'ov-label';
+      label.innerHTML = '<b>' + String(i + 1).padStart(2, '0') + '</b><span>' +
+        (s.dataset.slideKind || '') + '</span>';
+      card.appendChild(thumb); card.appendChild(label);
+      card.onclick = function () { toggleOverview(); go(i); };
+      card.onkeydown = function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleOverview(); go(i); } };
+      grid.appendChild(card);
+    });
+    ov.appendChild(grid);
+  }
+  function toggleOverview() {
+    overviewOn = !overviewOn;
+    if (overviewOn) { buildOverview(); ov.style.display = 'block'; }
+    else { ov.style.display = 'none'; }
+  }
+  addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { e.preventDefault(); toggleOverview(); return; }
+    if (overviewOn) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ' || e.key === 'ArrowDown') { e.preventDefault(); go(idx + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'ArrowUp') { e.preventDefault(); go(idx - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); go(0); }
+    else if (e.key === 'End') { e.preventDefault(); go(total - 1); }
   });
+  var wheelTO = null, wheelAcc = 0;
+  addEventListener('wheel', function (e) {
+    if (overviewOn) return;
+    wheelAcc += e.deltaY + e.deltaX;
+    if (Math.abs(wheelAcc) > 60) { go(idx + (wheelAcc > 0 ? 1 : -1)); wheelAcc = 0; }
+    clearTimeout(wheelTO); wheelTO = setTimeout(function () { wheelAcc = 0; }, 150);
+  }, { passive: true });
+  var tx = 0;
+  addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+  addEventListener('touchend', function (e) {
+    if (overviewOn) return;
+    var dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 50) { go(idx + (dx < 0 ? 1 : -1)); }
+  }, { passive: true });
+  addEventListener('message', function (e) {
+    var data = e && e.data;
+    if (!data || data.type !== 'od:slide') return;
+    if (data.action === 'go' && typeof data.index === 'number') applySlide(data.index);
+    else if (data.action === 'next') applySlide(idx + 1);
+    else if (data.action === 'prev') applySlide(idx - 1);
+    else if (data.action === 'first') applySlide(0);
+    else if (data.action === 'last') applySlide(total - 1);
+  });
+  if (typeof MutationObserver !== 'undefined') {
+    var mo = new MutationObserver(function () {
+      for (var i = 0; i < slides.length; i++) {
+        if (slides[i].classList.contains('active') && i !== idx) { applySlide(i); return; }
+      }
+    });
+    slides.forEach(function (s) { mo.observe(s, { attributes: true, attributeFilter: ['class'] }); });
+  }
+  applySlide(0);
+})();
 </script>
 </body>
 </html>
