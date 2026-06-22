@@ -369,24 +369,24 @@ strong { font-weight: 500; }
 }
 
 .s-takeaway {
-  background: #FEF5E7 !important;
-  color: var(--near-black) !important;
+  background: #3F69D0 !important;
+  color: #fff !important;
 }
 .s-takeaway .slide-inner {
   grid-template-columns: 1fr; text-align: left; align-content: center; gap: 28px;
   max-width: 980px;
 }
-.s-takeaway .slide-foot { color: var(--stone) !important; }
-.s-takeaway .slide-foot .counter { color: var(--near-black) !important; background: rgba(20, 20, 19, 0.05) !important; border-color: var(--border) !important; }
+.s-takeaway .slide-foot { color: rgba(255,255,255,0.6) !important; }
+.s-takeaway .slide-foot .counter { color: #fff !important; background: rgba(255,255,255,0.1) !important; border-color: rgba(255,255,255,0.25) !important; }
 .takeaway-num {
   font-family: var(--mono); font-weight: 500; font-size: 18px;
-  color: var(--brand); letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.6); letter-spacing: 0.06em;
   font-variant-numeric: tabular-nums;
 }
 .takeaway-text {
   font-family: var(--serif); font-weight: 500;
   font-size: clamp(36px, 4.5vw, 60px); line-height: 1.15;
-  letter-spacing: -0.6px; color: var(--near-black);
+  letter-spacing: -0.6px; color: #fff;
 }
 
 .demo-card {
@@ -898,9 +898,7 @@ body:focus-visible {
     slides.forEach(function (s, i) { s.classList.toggle('active', i === idx); });
   }
   function go(n) {
-    if (lock) return;
     applySlide(n);
-    lock = true; setTimeout(function () { lock = false; }, 700);
   }
   var overviewOn = false;
   var ov = document.createElement('div'); ov.id = 'overview'; document.body.appendChild(ov);
