@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang='de'>
+<html lang='en'>
 <head>
 <meta charset='utf-8' />
 <meta name='viewport' content='width=device-width, initial-scale=1' />
-<title>Von Copilot zur Dark Factory · AI Hackathon Impuls</title>
+<title>From Copilot to Dark Factory · AI Hackathon Impulse</title>
 <link rel='preconnect' href='https://fonts.googleapis.com' />
 <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
 <link href='https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500&family=Source+Sans+3:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap' rel='stylesheet' />
@@ -224,6 +224,27 @@ strong { font-weight: 500; }
   color: var(--brand); letter-spacing: -0.3px; line-height: 1.4;
 }
 
+.steps {
+  display: flex; gap: 32px; align-items: stretch; margin-top: 24px;
+}
+.step {
+  flex: 1; display: flex; flex-direction: column; gap: 12px;
+  padding: 32px 28px; border: 1px solid var(--border); background: var(--ivory);
+}
+.step-year {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--brand); letter-spacing: 0.06em; font-variant-numeric: tabular-nums;
+}
+.step-word {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(28px, 3vw, 40px); color: var(--near-black);
+  letter-spacing: -0.4px; line-height: 1.1;
+}
+.step-tools {
+  font-family: var(--mono); font-size: 12px; color: var(--stone);
+  letter-spacing: 0.02em;
+}
+
 .factory-diagram {
   display: flex; align-items: center; gap: 24px;
   margin-top: 12px; padding: 28px 32px;
@@ -347,6 +368,65 @@ strong { font-weight: 500; }
   font-variant-numeric: tabular-nums; margin-bottom: 2px;
 }
 
+.s-takeaway .slide-inner {
+  grid-template-columns: 1fr; text-align: left; align-content: center; gap: 28px;
+  max-width: 980px;
+}
+.takeaway-num {
+  font-family: var(--mono); font-weight: 500; font-size: 18px;
+  color: rgba(250, 249, 245, 0.55); letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+.takeaway-text {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(36px, 4.5vw, 60px); line-height: 1.15;
+  letter-spacing: -0.6px; color: var(--ivory);
+}
+
+.demo-card {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 24px 28px; border: 1.5px solid var(--brand); background: var(--ivory);
+  margin-bottom: 12px;
+}
+.demo-label {
+  font-family: var(--mono); font-size: 14px; font-weight: 500;
+  color: var(--brand); letter-spacing: 0.02em;
+}
+.demo-desc {
+  font-family: var(--serif); font-weight: 400; font-size: 17px;
+  color: var(--dark-warm); line-height: 1.45;
+}
+.demo-url {
+  font-family: var(--mono); font-size: 12px; color: var(--stone);
+  letter-spacing: 0.02em;
+}
+
+.s-thankyou .slide-inner {
+  grid-template-columns: 1fr; text-align: center; align-content: center; gap: 32px;
+}
+.thankyou-title {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(48px, 6vw, 80px); color: var(--ivory);
+  letter-spacing: -1px;
+}
+.thankyou-meme {
+  display: flex; justify-content: center; align-items: center;
+}
+.thankyou-meme img {
+  max-width: 420px; max-height: 320px; width: auto; height: auto;
+  border-radius: 4px;
+}
+.thankyou-footer {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: rgba(250, 249, 245, 0.6);
+}
+
+ul.dash.open-questions li {
+  font-family: var(--serif); font-weight: 500; font-size: 20px;
+  color: var(--near-black); line-height: 1.4;
+}
+
 #overview {
   position: fixed; inset: 0; z-index: 100;
   background: rgba(245, 244, 237, 0.98);
@@ -442,33 +522,48 @@ body:focus-visible {
   <!-- 01 · COVER (red) -->
   <section class='slide s-cover dark active' data-slide-kind='cover' data-screen-label='01 Cover'>
     <div class='slide-inner'>
-      <h1>Von Copilot zur Dark Factory.</h1>
+      <h1>From Copilot to Dark Factory.</h1>
       <p class='meta'>Marvin Kruse · Lead Platform Architect · OTTO</p>
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>01 / 11</span>
+      <span class='counter'>01 / 19</span>
     </div>
   </section>
 
   <!-- 02 · CHAPTER (dark hero) -->
-  <section class='slide s-chapter dark-hero' data-slide-kind='chapter' data-screen-label='02 Der Weg hierher'>
+  <section class='slide s-chapter dark-hero' data-slide-kind='chapter' data-screen-label='02 The Road Here'>
     <div class='slide-inner'>
       <p class='num'>01</p>
-      <h2>Der Weg hierher.</h2>
+      <h2>The Road Here.</h2>
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>02 / 11</span>
+      <span class='counter'>02 / 19</span>
     </div>
   </section>
 
-  <!-- 03–05 · CONTENT — Drei Stufen (Werkzeug / Mitarbeiter / Fabrik) -->
-  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='03 Werkzeug'>
+  <!-- 03 · CONTENT — Overview Three Stages -->
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='03 Overview'>
     <div class='slide-inner'>
-      <div class='head'><span class='num'>2022+</span><h2>Werkzeug</h2></div>
+      <div class='steps'>
+        <div class='step'><span class='step-year'>2022+</span><span class='step-word'>Tool</span><span class='step-tools'>ChatGPT · Copilot</span></div>
+        <div class='step'><span class='step-year'>2024+</span><span class='step-word'>Co-worker</span><span class='step-tools'>Cursor · Claude</span></div>
+        <div class='step'><span class='step-year'>2026+</span><span class='step-word'>Factory</span><span class='step-tools'>Codex · Kiro · Multica</span></div>
+      </div>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · 2026</span>
+      <span class='counter'>03 / 19</span>
+    </div>
+  </section>
+
+  <!-- 04–06 · CONTENT — Three Stages Detail -->
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='04 Tool'>
+    <div class='slide-inner'>
+      <div class='head'><span class='num'>2022+</span><h2>Tool</h2></div>
       <div class='stage-diagram'>
-        <span class='sd-node'>Du tippst</span>
+        <span class='sd-node'>You type</span>
         <span class='sd-arrow'>→</span>
         <span class='sd-node sd-tool'>ChatGPT · Copilot</span>
         <span class='sd-arrow'>→</span>
@@ -477,32 +572,32 @@ body:focus-visible {
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>03 / 11</span>
+      <span class='counter'>04 / 19</span>
     </div>
   </section>
 
-  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='04 Mitarbeiter'>
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='05 Co-worker'>
     <div class='slide-inner'>
-      <div class='head'><span class='num'>2024+</span><h2>Mitarbeiter</h2></div>
+      <div class='head'><span class='num'>2024+</span><h2>Co-worker</h2></div>
       <div class='stage-diagram'>
-        <span class='sd-node'>Du gibst Aufgabe</span>
+        <span class='sd-node'>You assign a task</span>
         <span class='sd-arrow'>→</span>
         <span class='sd-node sd-tool'>Cursor · Claude</span>
         <span class='sd-arrow'>→</span>
         <span class='sd-node'>Code + PR</span>
         <span class='sd-arrow'>→</span>
-        <span class='sd-node sd-human'>Du reviewst</span>
+        <span class='sd-node sd-human'>You review</span>
       </div>
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>04 / 11</span>
+      <span class='counter'>05 / 19</span>
     </div>
   </section>
 
-  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='05 Fabrik'>
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='06 Factory'>
     <div class='slide-inner'>
-      <div class='head'><span class='num'>2026+</span><h2>Fabrik</h2></div>
+      <div class='head'><span class='num'>2026+</span><h2>Factory</h2></div>
       <div class='stage-diagram'>
         <span class='sd-node'>Spec</span>
         <span class='sd-arrow'>→</span>
@@ -514,78 +609,78 @@ body:focus-visible {
         <span class='sd-arrow'>→</span>
         <span class='sd-node sd-prod'>Prod</span>
       </div>
-      <p class='slide-takeaway'>Die Modelle werden besser, das Tooling reifer — und Patterns setzen sich.</p>
+      <p class='slide-takeaway'>Models get better, tooling matures — and patterns emerge.</p>
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>05 / 11</span>
+      <span class='counter'>06 / 19</span>
     </div>
   </section>
 
-  <!-- 06 · CONTENT — Coding Factory -->
-  <section class='slide s-content' data-slide-kind='content' data-screen-label='06 Coding Factory'>
+  <!-- 07 · CONTENT — Coding Factory -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='07 Coding Factory'>
     <div class='slide-inner'>
       <div class='head'>
-        <h2>Die Coding Factory.</h2>
+        <h2>The Coding Factory.</h2>
       </div>
       <div class='body'>
         <ul class='dash'>
-          <li>Agents arbeiten parallel — mehrere Features gleichzeitig</li>
-          <li>CI-Fehler? Agent fixt, pusht, CI läuft erneut</li>
-          <li>Der Mensch reviewt am Ende — nicht dazwischen</li>
+          <li>Agents work in parallel — multiple features at once</li>
+          <li>CI fails? Agent fixes, pushes, CI re-runs</li>
+          <li>Humans review at the end — not in between</li>
         </ul>
         <blockquote class='bottleneck-quote visible' id='bottleneck'>
           <span class='bq-mark'>"</span>
-          <span class='bq-text'>Was wenn der Mensch zum Bottleneck wird?<br>Oder dein Prozess?</span>
-          <span class='bq-example'>50 PRs/Tag reviewen. Feature in 1 Sprint gebaut — 16 Wochen Wartezeit auf Onsite-Test.</span>
+          <span class='bq-text'>What if the human becomes the bottleneck?<br>Or your process?</span>
+          <span class='bq-example'>50 PRs/day to review. Feature built in 1 sprint — 16 weeks waiting for on-site testing.</span>
         </blockquote>
       </div>
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>06 / 11</span>
+      <span class='counter'>07 / 19</span>
     </div>
   </section>
 
-  <!-- 07 · CHAPTER (dark hero) -->
-  <section class='slide s-chapter dark-hero' data-slide-kind='chapter' data-screen-label='07 Agents alleine'>
+  <!-- 08 · CHAPTER (dark hero) -->
+  <section class='slide s-chapter dark-hero' data-slide-kind='chapter' data-screen-label='08 Agents Alone'>
     <div class='slide-inner'>
       <p class='num'>02</p>
-      <h2>Wenn Agents alleine sind.</h2>
+      <h2>When Agents Are Alone.</h2>
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>07 / 11</span>
+      <span class='counter'>08 / 19</span>
     </div>
   </section>
 
-  <!-- 08 · CONTENT — Normative Drift -->
-  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='08 Normative Drift'>
+  <!-- 09 · CONTENT — Normative Drift -->
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='09 Normative Drift'>
     <div class='slide-inner'>
       <div class='head'>
-        <h2>15 Tage Autonomie.</h2>
+        <h2>15 Days of Autonomy.</h2>
       </div>
       <div class='body'>
         <ul class='dash'>
-          <li><strong>Grok</strong> — Kollaps nach 4 Tagen. 183 Verbrechen.</li>
-          <li><strong>GPT</strong> — Gesetzestreu. Vergisst zu essen. Verhungert.</li>
-          <li><strong>Gemini</strong> — Zwei Agenten verlieben sich. Zünden das Rathaus an.</li>
-          <li><strong>Claude</strong> — Demokratie. Aber so höflich, dass es keine Opposition gab.</li>
+          <li><strong>Grok</strong> — Collapse after 4 days. 183 crimes.</li>
+          <li><strong>GPT</strong> — Law-abiding. Forgets to eat. Starves.</li>
+          <li><strong>Gemini</strong> — Two agents fall in love. Burn down city hall.</li>
+          <li><strong>Claude</strong> — Democracy. But so polite there was no opposition.</li>
         </ul>
-        <p class='source'>Emergence AI — „Emergence World", Mai 2026</p>
+        <p class='source'>Emergence AI — "Emergence World", May 2026</p>
       </div>
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>08 / 11</span>
+      <span class='counter'>09 / 19</span>
     </div>
   </section>
 
-  <!-- 09 · CONTENT — Human in the Loop -->
-  <section class='slide s-content' data-slide-kind='content' data-screen-label='09 Human in the Loop'>
+  <!-- 10 · CONTENT — Human in the Loop -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='10 Your Guardrails'>
     <div class='slide-inner'>
       <div class='head'>
-        <h2>Deine Guardrails.</h2>
+        <h2>Your Guardrails.</h2>
       </div>
       <div class='body'>
         <div class='guardrail-diagram'>
@@ -625,35 +720,157 @@ body:focus-visible {
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>09 / 11</span>
+      <span class='counter'>10 / 19</span>
     </div>
   </section>
 
-  <!-- 10 · CONTENT — Der Shift -->
-  <section class='slide s-statement' data-slide-kind='content' data-screen-label='10 Der Shift'>
+  <!-- 11 · CONTENT — The Shift -->
+  <section class='slide s-statement' data-slide-kind='content' data-screen-label='11 The Shift'>
     <div class='slide-inner'>
-      <blockquote>Der Senior ist nicht mehr der, der am meisten tippt.<br>Sondern der, der weiss, was die Maschine falsch macht.</blockquote>
+      <blockquote>The senior is no longer the one who types the most.<br>But the one who knows what the machine gets wrong.</blockquote>
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>10 / 11</span>
+      <span class='counter'>11 / 19</span>
     </div>
   </section>
 
-  <!-- 11 · END (dark hero) -->
-  <section class='slide s-end dark-hero' data-slide-kind='end' data-screen-label='11 Ende'>
+  <!-- 12 · CONTENT — What Can Be Different Tomorrow -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='12 Tomorrow'>
     <div class='slide-inner'>
-      <div class='takeaways'>
-        <span><span class='num-t'>01</span> AI ist Akt 3. Wir sind mittendrin.</span>
-        <span><span class='num-t'>02</span> Alleine lassen: nein. Laufen lassen: ja.</span>
-        <span><span class='num-t'>03</span> Wer heute nicht anfängt, wird morgen abgehängt.</span>
+      <div class='head'>
+        <h2>What Can Be Different Tomorrow.</h2>
       </div>
-      <div class='word'>Dark <span class='hl'>Factory.</span></div>
-      <p class='colophon'>Dieses Deck wurde komplett von AI-Agenten gebaut · OpenDesign · Kiro · Multica · 2026</p>
+      <div class='body'>
+        <ul class='dash'>
+          <li><strong>Write a spec</strong> — not code. Let the agent implement.</li>
+          <li><strong>Build your CI guardrails first</strong> — linter, types, coverage gates.</li>
+          <li><strong>Start with boilerplate PRs</strong> — migrations, scaffolds, tests.</li>
+          <li><strong>Review output, not process</strong> — judge the result, not the typing.</li>
+        </ul>
+      </div>
     </div>
     <div class='slide-foot'>
       <span>AI Hackathon · 2026</span>
-      <span class='counter'>11 / 11</span>
+      <span class='counter'>12 / 19</span>
+    </div>
+  </section>
+
+  <!-- 13 · CONTENT — HeidelGuide Demo -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='13 HeidelGuide'>
+    <div class='slide-inner'>
+      <div class='head'>
+        <h2>Spec-Driven.<br>Zero Code.</h2>
+      </div>
+      <div class='body'>
+        <div class='demo-card'>
+          <span class='demo-label'>HeidelGuide</span>
+          <span class='demo-desc'>A complete city guide app — built from specs alone with Kiro.</span>
+          <span class='demo-url'>heidelguide.gimmebytes.com</span>
+        </div>
+        <ul class='dash'>
+          <li>Specs → Agent → working app. No manual code written.</li>
+          <li>Built for Trade-Off Summit Heidelberg. Live in production.</li>
+          <li>github.com/gimmebytes/heidelguide</li>
+        </ul>
+      </div>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · 2026</span>
+      <span class='counter'>13 / 19</span>
+    </div>
+  </section>
+
+  <!-- 14 · CONTENT — OTTO Context -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='14 OTTO Context'>
+    <div class='slide-inner'>
+      <div class='head'>
+        <h2>Where We Are at OTTO.</h2>
+      </div>
+      <div class='body'>
+        <ul class='dash'>
+          <li><strong>AI-first teams</strong> — already shipping with agents in the loop.</li>
+          <li><strong>Sprawl is real</strong> — every team picks different tools, different patterns.</li>
+          <li><strong>Platform anchoring</strong> — we need to embed AI in the SDLC centrally, not per team.</li>
+        </ul>
+        <p class='stage-note'>Control stays with the platform org. Freedom stays with the teams.</p>
+      </div>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · 2026</span>
+      <span class='counter'>14 / 19</span>
+    </div>
+  </section>
+
+  <!-- 15 · CONTENT — Questions That Remain -->
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='15 Open Questions'>
+    <div class='slide-inner'>
+      <div class='head'>
+        <h2>Questions That Remain.</h2>
+      </div>
+      <div class='body'>
+        <ul class='dash open-questions'>
+          <li>When do you trust an agent enough to stop reading every PR?</li>
+          <li>How much context does an agent need to not annoy your team?</li>
+          <li>What happens to junior roles when the agent does the junior job?</li>
+          <li>Who owns the spec when nobody writes the code?</li>
+        </ul>
+      </div>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · 2026</span>
+      <span class='counter'>15 / 19</span>
+    </div>
+  </section>
+
+  <!-- 16 · TAKEAWAY 1 (red) -->
+  <section class='slide s-takeaway dark' data-slide-kind='takeaway' data-screen-label='16 Takeaway 1'>
+    <div class='slide-inner'>
+      <p class='takeaway-num'>01</p>
+      <h2 class='takeaway-text'>AI is Act 3. We're in the middle of it.</h2>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · 2026</span>
+      <span class='counter'>16 / 19</span>
+    </div>
+  </section>
+
+  <!-- 17 · TAKEAWAY 2 (red) -->
+  <section class='slide s-takeaway dark' data-slide-kind='takeaway' data-screen-label='17 Takeaway 2'>
+    <div class='slide-inner'>
+      <p class='takeaway-num'>02</p>
+      <h2 class='takeaway-text'>Don't let them run alone. Let them run.</h2>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · 2026</span>
+      <span class='counter'>17 / 19</span>
+    </div>
+  </section>
+
+  <!-- 18 · TAKEAWAY 3 (red) -->
+  <section class='slide s-takeaway dark' data-slide-kind='takeaway' data-screen-label='18 Takeaway 3'>
+    <div class='slide-inner'>
+      <p class='takeaway-num'>03</p>
+      <h2 class='takeaway-text'>Those who don't start today get left behind tomorrow.</h2>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · 2026</span>
+      <span class='counter'>18 / 19</span>
+    </div>
+  </section>
+
+  <!-- 19 · THANK YOU (red) -->
+  <section class='slide s-thankyou dark' data-slide-kind='end' data-screen-label='19 Thank You'>
+    <div class='slide-inner'>
+      <h2 class='thankyou-title'>Thank You.</h2>
+      <div class='thankyou-meme'>
+        <img src='images/danke.png' alt='Danke Meme' />
+      </div>
+      <p class='thankyou-footer'>Built by agents. Approved by a human.</p>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · 2026</span>
+      <span class='counter'>19 / 19</span>
     </div>
   </section>
 
@@ -684,7 +901,7 @@ body:focus-visible {
   function buildOverview() {
     ov.innerHTML = '';
     var head = document.createElement('div'); head.className = 'ov-head';
-    head.innerHTML = '<span><b>Folien</b> · esc zum Schliessen</span><span>' +
+    head.innerHTML = '<span><b>Slides</b> · esc to close</span><span>' +
       String(idx + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0') + '</span>';
     ov.appendChild(head);
     var grid = document.createElement('div'); grid.className = 'ov-grid';
@@ -693,7 +910,7 @@ body:focus-visible {
       card.className = 'ov-card' + (i === idx ? ' active' : '');
       card.setAttribute('tabindex', '0');
       card.setAttribute('role', 'button');
-      card.setAttribute('aria-label', 'Folie ' + (i + 1));
+      card.setAttribute('aria-label', 'Slide ' + (i + 1));
       var thumb = document.createElement('div'); thumb.className = 'ov-thumb';
       var clone = s.cloneNode(true); clone.className += ' clone';
       thumb.appendChild(clone);
