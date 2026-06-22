@@ -373,7 +373,7 @@ strong { font-weight: 500; }
   color: #fff !important;
 }
 .s-takeaway .slide-inner {
-  grid-template-columns: 1fr; text-align: left; align-content: center; gap: 28px;
+  grid-template-columns: 1fr; text-align: left; align-content: center; gap: 20px;
   max-width: 980px;
 }
 .s-takeaway .slide-foot { color: rgba(255,255,255,0.6) !important; }
@@ -383,10 +383,15 @@ strong { font-weight: 500; }
   color: rgba(255,255,255,0.6); letter-spacing: 0.06em;
   font-variant-numeric: tabular-nums;
 }
-.takeaway-text {
+.takeaway-setup {
   font-family: var(--serif); font-weight: 500;
-  font-size: clamp(36px, 4.5vw, 60px); line-height: 1.15;
-  letter-spacing: -0.6px; color: #fff;
+  font-size: clamp(34px, 4vw, 54px); line-height: 1.2;
+  letter-spacing: -0.4px; color: rgba(255,255,255,0.75);
+}
+.takeaway-punch {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(42px, 5.5vw, 72px); line-height: 1.1;
+  letter-spacing: -0.8px; color: #fff;
 }
 
 .demo-card {
@@ -405,6 +410,16 @@ strong { font-weight: 500; }
 .demo-url {
   font-family: var(--mono); font-size: 12px; color: var(--stone);
   letter-spacing: 0.02em;
+}
+
+.demo-url a, .s-content ul.dash a {
+  color: var(--stone); text-decoration: underline;
+  text-decoration-color: rgba(107, 106, 100, 0.4);
+  text-underline-offset: 2px; transition: color 0.2s;
+  pointer-events: auto;
+}
+.demo-url a:hover, .s-content ul.dash a:hover {
+  color: var(--brand); text-decoration-color: var(--brand);
 }
 
 .s-thankyou .slide-inner {
@@ -532,8 +547,8 @@ body:focus-visible {
       <p class='meta'>Marvin Kruse · Lead Platform Architect · OTTO</p>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>01 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>01 / 22</span>
     </div>
   </section>
 
@@ -544,8 +559,8 @@ body:focus-visible {
       <h2>The Road Here.</h2>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>02 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>02 / 22</span>
     </div>
   </section>
 
@@ -553,14 +568,14 @@ body:focus-visible {
   <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='03 Overview'>
     <div class='slide-inner'>
       <div class='steps'>
-        <div class='step'><span class='step-year'>2022+</span><span class='step-word'>Tool</span><span class='step-tools'>ChatGPT · Copilot</span></div>
-        <div class='step'><span class='step-year'>2024+</span><span class='step-word'>Co-worker</span><span class='step-tools'>Cursor · Claude</span></div>
-        <div class='step'><span class='step-year'>2026+</span><span class='step-word'>Factory</span><span class='step-tools'>Codex · Kiro · Multica</span></div>
+        <div class='step'><span class='step-year'>2022+</span><span class='step-word'>Tool</span><span class='step-tools'>ChatGPT</span></div>
+        <div class='step'><span class='step-year'>2024+</span><span class='step-word'>Co-worker</span><span class='step-tools'>Copilot · Cursor · Claude</span></div>
+        <div class='step'><span class='step-year'>2026+</span><span class='step-word'>Factory</span><span class='step-tools'>Codex · Multica</span></div>
       </div>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>03 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>03 / 22</span>
     </div>
   </section>
 
@@ -571,14 +586,14 @@ body:focus-visible {
       <div class='stage-diagram'>
         <span class='sd-node'>You type</span>
         <span class='sd-arrow'>→</span>
-        <span class='sd-node sd-tool'>ChatGPT · Copilot</span>
+        <span class='sd-node sd-tool'>ChatGPT</span>
         <span class='sd-arrow'>→</span>
         <span class='sd-node'>Code</span>
       </div>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>04 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>04 / 22</span>
     </div>
   </section>
 
@@ -588,7 +603,7 @@ body:focus-visible {
       <div class='stage-diagram'>
         <span class='sd-node'>You assign a task</span>
         <span class='sd-arrow'>→</span>
-        <span class='sd-node sd-tool'>Cursor · Claude</span>
+        <span class='sd-node sd-tool'>Copilot · Cursor · Claude</span>
         <span class='sd-arrow'>→</span>
         <span class='sd-node'>Code + PR</span>
         <span class='sd-arrow'>→</span>
@@ -596,8 +611,8 @@ body:focus-visible {
       </div>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>05 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>05 / 22</span>
     </div>
   </section>
 
@@ -615,11 +630,10 @@ body:focus-visible {
         <span class='sd-arrow'>→</span>
         <span class='sd-node sd-prod'>Prod</span>
       </div>
-      <p class='slide-takeaway'>Models get better, tooling matures — and patterns emerge.</p>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>06 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>06 / 22</span>
     </div>
   </section>
 
@@ -643,8 +657,8 @@ body:focus-visible {
       </div>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>07 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>07 / 22</span>
     </div>
   </section>
 
@@ -655,13 +669,34 @@ body:focus-visible {
       <h2>When Agents Are Alone.</h2>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>08 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>08 / 22</span>
     </div>
   </section>
 
-  <!-- 09 · CONTENT — Normative Drift -->
-  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='09 Normative Drift'>
+  <!-- 09 · CONTENT — Agents Without Guardrails -->
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='09 Without Guardrails'>
+    <div class='slide-inner'>
+      <div class='head'>
+        <h2>What Can Go Wrong.</h2>
+      </div>
+      <div class='body'>
+        <ul class='dash'>
+          <li><strong>Emails sent</strong> — agent auto-replies to customers. Tone: unhinged.</li>
+          <li><strong>Backups deleted</strong> — agent "cleans up" storage. Permanently.</li>
+          <li><strong>Prod deployed</strong> — untested code, Friday evening, no rollback.</li>
+          <li><strong>Credentials leaked</strong> — agent commits .env to public repo.</li>
+        </ul>
+      </div>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>09 / 22</span>
+    </div>
+  </section>
+
+  <!-- 10 · CONTENT — Normative Drift -->
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='10 Normative Drift'>
     <div class='slide-inner'>
       <div class='head'>
         <h2>15 Days of Autonomy.</h2>
@@ -677,13 +712,13 @@ body:focus-visible {
       </div>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>09 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>10 / 22</span>
     </div>
   </section>
 
-  <!-- 10 · CONTENT — Human in the Loop -->
-  <section class='slide s-content' data-slide-kind='content' data-screen-label='10 Your Guardrails'>
+  <!-- 11 · CONTENT — Your Guardrails -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='11 Your Guardrails'>
     <div class='slide-inner'>
       <div class='head'>
         <h2>Your Guardrails.</h2>
@@ -698,12 +733,12 @@ body:focus-visible {
           <div class='guardrail-lane'>
             <span class='guardrail-label'>Compiler</span>
             <span class='guardrail-line'></span>
-            <span class='guardrail-tools'>tsc --strict · cargo check</span>
+            <span class='guardrail-tools'>tsc --strict · Go · javac · cargo check</span>
           </div>
           <div class='guardrail-lane'>
             <span class='guardrail-label'>Tests</span>
             <span class='guardrail-line'></span>
-            <span class='guardrail-tools'>Coverage-Gates · Mutation</span>
+            <span class='guardrail-tools'>Unit Tests · Integration Tests · Coverage-Gates</span>
           </div>
           <div class='guardrail-lane'>
             <span class='guardrail-label'>Security</span>
@@ -715,34 +750,29 @@ body:focus-visible {
             <span class='guardrail-line'></span>
             <span class='guardrail-tools'>Skills · Prompts · Rules</span>
           </div>
-          <div class='guardrail-flow'>
-            <span class='guardrail-arrow'>→</span>
-            <span class='guardrail-badge'>Agent Output</span>
-            <span class='guardrail-arrow'>→</span>
-            <span class='guardrail-badge guardrail-pass'>✓ Pass</span>
-          </div>
         </div>
+        <p class='slide-takeaway' style='margin-top: 32px; font-size: 26px;'>We set the guardrails — not the agent.</p>
       </div>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>10 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>11 / 22</span>
     </div>
   </section>
 
-  <!-- 11 · CONTENT — The Shift -->
-  <section class='slide s-statement' data-slide-kind='content' data-screen-label='11 The Shift'>
+  <!-- 12 · CONTENT — The Shift -->
+  <section class='slide s-statement' data-slide-kind='content' data-screen-label='12 The Shift'>
     <div class='slide-inner'>
-      <blockquote>The senior is no longer the one who types the most.<br>But the one who knows what the machine gets wrong.</blockquote>
+      <blockquote>The senior sees what the agent gets wrong.<br>And from that — guardrails emerge.</blockquote>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>11 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>12 / 22</span>
     </div>
   </section>
 
-  <!-- 12 · CONTENT — What Can Be Different Tomorrow -->
-  <section class='slide s-content' data-slide-kind='content' data-screen-label='12 Tomorrow'>
+  <!-- 13 · CONTENT — What Can Be Different Tomorrow -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='13 Tomorrow'>
     <div class='slide-inner'>
       <div class='head'>
         <h2>What Can Be Different Tomorrow.</h2>
@@ -751,19 +781,32 @@ body:focus-visible {
         <ul class='dash'>
           <li><strong>Write a spec</strong> — not code. Let the agent implement.</li>
           <li><strong>Build your CI guardrails first</strong> — linter, types, coverage gates.</li>
-          <li><strong>Start with boilerplate PRs</strong> — migrations, scaffolds, tests.</li>
-          <li><strong>Review output, not process</strong> — judge the result, not the typing.</li>
+          <li><strong>Delegate the boring stuff first</strong> — scaffolds, migrations, test boilerplate.</li>
+          <li><strong>Guardrail the output</strong> — own the harness, validate the result. The path there is the agent's problem.</li>
+          <li><strong>What's your use case for today?</strong></li>
         </ul>
       </div>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>12 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>13 / 22</span>
     </div>
   </section>
 
-  <!-- 13 · CONTENT — HeidelGuide Demo -->
-  <section class='slide s-content' data-slide-kind='content' data-screen-label='13 HeidelGuide'>
+  <!-- 14 · CHAPTER — From Our World -->
+  <section class='slide s-chapter dark-hero' data-slide-kind='chapter' data-screen-label='14 From Our World'>
+    <div class='slide-inner'>
+      <p class='num'>03</p>
+      <h2>From Our World.</h2>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>14 / 22</span>
+    </div>
+  </section>
+
+  <!-- 15 · CONTENT — HeidelGuide Demo -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='15 HeidelGuide'>
     <div class='slide-inner'>
       <div class='head'>
         <h2>Spec-Driven.<br>Zero Code.</h2>
@@ -772,23 +815,23 @@ body:focus-visible {
         <div class='demo-card'>
           <span class='demo-label'>HeidelGuide</span>
           <span class='demo-desc'>A complete city guide app — built from specs alone with Kiro.</span>
-          <span class='demo-url'>heidelguide.gimmebytes.com</span>
+          <span class='demo-url'><a href='https://heidelguide.gimmebytes.com' target='_blank'>heidelguide.gimmebytes.com</a></span>
         </div>
         <ul class='dash'>
           <li>Specs → Agent → working app. No manual code written.</li>
           <li>Built for Trade-Off Summit Heidelberg. Live in production.</li>
-          <li>github.com/gimmebytes/heidelguide</li>
+          <li><a href='https://github.com/gimmebytes/heidelguide' target='_blank'>github.com/gimmebytes/heidelguide</a></li>
         </ul>
       </div>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>13 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>15 / 22</span>
     </div>
   </section>
 
-  <!-- 14 · CONTENT — OTTO Context -->
-  <section class='slide s-content' data-slide-kind='content' data-screen-label='14 OTTO Context'>
+  <!-- 16 · CONTENT — OTTO Context -->
+  <section class='slide s-content' data-slide-kind='content' data-screen-label='16 OTTO Context'>
     <div class='slide-inner'>
       <div class='head'>
         <h2>Where We Are at OTTO.</h2>
@@ -796,20 +839,21 @@ body:focus-visible {
       <div class='body'>
         <ul class='dash'>
           <li><strong>AI-first teams</strong> — already shipping with agents in the loop.</li>
-          <li><strong>Sprawl is real</strong> — every team picks different tools, different patterns.</li>
-          <li><strong>Platform anchoring</strong> — we need to embed AI in the SDLC centrally, not per team.</li>
+          <li><strong>Governance + cost control</strong> — usage visibility, avoid lock-in.</li>
+          <li><strong>AI-first sprint handbook</strong> — how we run sprints with agents.</li>
+          <li><strong>Skill marketplace + community</strong> — share what works across teams.</li>
+          <li><strong>What we've learned</strong> — shared guardrails scale. Individual experiments don't.</li>
         </ul>
-        <p class='stage-note'>Control stays with the platform org. Freedom stays with the teams.</p>
       </div>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>14 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>16 / 22</span>
     </div>
   </section>
 
-  <!-- 15 · CONTENT — Questions That Remain -->
-  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='15 Open Questions'>
+  <!-- 17 · CONTENT — Questions That Remain -->
+  <section class='slide s-content layout-full' data-slide-kind='content' data-screen-label='17 Open Questions'>
     <div class='slide-inner'>
       <div class='head'>
         <h2>Questions That Remain.</h2>
@@ -824,49 +868,63 @@ body:focus-visible {
       </div>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>15 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>17 / 22</span>
     </div>
   </section>
 
-  <!-- 16 · TAKEAWAY 1 (red) -->
-  <section class='slide s-takeaway' data-slide-kind='takeaway' data-screen-label='16 Takeaway 1'>
+  <!-- 18 · CHAPTER — Key Takeaways -->
+  <section class='slide dark s-chapter' data-slide-kind='chapter' data-screen-label='18 Key Takeaways'>
+    <div class='slide-inner'>
+      <h2>Key Takeaways.</h2>
+    </div>
+    <div class='slide-foot'>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>18 / 22</span>
+    </div>
+  </section>
+
+  <!-- 19 · TAKEAWAY 1 (blue) -->
+  <section class='slide s-takeaway' data-slide-kind='takeaway' data-screen-label='19 Takeaway 1'>
     <div class='slide-inner'>
       <p class='takeaway-num'>01</p>
-      <h2 class='takeaway-text'>The third platform shift is happening. You're in it.</h2>
+      <p class='takeaway-setup'>The third platform shift is happening.</p>
+      <p class='takeaway-punch'>Right now.</p>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>16 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>19 / 22</span>
     </div>
   </section>
 
-  <!-- 17 · TAKEAWAY 2 (red) -->
-  <section class='slide s-takeaway' data-slide-kind='takeaway' data-screen-label='17 Takeaway 2'>
+  <!-- 20 · TAKEAWAY 2 (blue) -->
+  <section class='slide s-takeaway' data-slide-kind='takeaway' data-screen-label='20 Takeaway 2'>
     <div class='slide-inner'>
       <p class='takeaway-num'>02</p>
-      <h2 class='takeaway-text'>Don't let them run alone. Let them run.</h2>
+      <p class='takeaway-setup'>Set the guardrails.</p>
+      <p class='takeaway-punch'>Then let them run.</p>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>17 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>20 / 22</span>
     </div>
   </section>
 
-  <!-- 18 · TAKEAWAY 3 (red) -->
-  <section class='slide s-takeaway' data-slide-kind='takeaway' data-screen-label='18 Takeaway 3'>
+  <!-- 21 · TAKEAWAY 3 (blue) -->
+  <section class='slide s-takeaway' data-slide-kind='takeaway' data-screen-label='21 Takeaway 3'>
     <div class='slide-inner'>
       <p class='takeaway-num'>03</p>
-      <h2 class='takeaway-text'>Those who don't start today get left behind tomorrow.</h2>
+      <p class='takeaway-setup'>The best time to start was yesterday.</p>
+      <p class='takeaway-punch'>The second best is now.</p>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>18 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>21 / 22</span>
     </div>
   </section>
 
-  <!-- 19 · THANK YOU (red) -->
-  <section class='slide s-thankyou dark' data-slide-kind='end' data-screen-label='19 Thank You'>
+  <!-- 22 · THANK YOU (red) -->
+  <section class='slide s-thankyou dark' data-slide-kind='end' data-screen-label='22 Thank You'>
     <div class='slide-inner'>
       <h2 class='thankyou-title'>Thank You.</h2>
       <div class='thankyou-meme'>
@@ -875,8 +933,8 @@ body:focus-visible {
       <p class='thankyou-footer'>Built by agents. Approved by a human.</p>
     </div>
     <div class='slide-foot'>
-      <span>AI Hackathon · 2026</span>
-      <span class='counter'>19 / 19</span>
+      <span>AI Hackathon · Juni 2026</span>
+      <span class='counter'>22 / 22</span>
     </div>
   </section>
 
