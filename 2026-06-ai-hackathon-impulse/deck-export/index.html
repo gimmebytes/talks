@@ -209,6 +209,18 @@ strong { font-weight: 500; }
 .sd-arrow {
   font-family: var(--mono); font-size: 18px; color: var(--stone);
 }
+.feedback-loop {
+  margin-top: 20px; display: flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 13px; color: var(--brand);
+  letter-spacing: 0.02em;
+}
+.loop-arrow {
+  font-size: 22px; color: var(--brand); font-weight: 500;
+}
+.loop-label, .loop-target {
+  padding: 4px 10px; border: 1px solid var(--brand); border-radius: 2px;
+  font-variant-numeric: tabular-nums;
+}
 .stage-note {
   margin-top: 16px; font-family: var(--serif); font-weight: 400;
   font-size: 17px; color: var(--olive); line-height: 1.4;
@@ -629,6 +641,11 @@ body:focus-visible {
         <span class='sd-node sd-human'>Human</span>
         <span class='sd-arrow'>→</span>
         <span class='sd-node sd-prod'>Prod</span>
+      </div>
+      <div class='feedback-loop'>
+        <span class='loop-label'>CI fail</span>
+        <span class='loop-arrow'>↩</span>
+        <span class='loop-target'>Agent retries</span>
       </div>
     </div>
     <div class='slide-foot'>
